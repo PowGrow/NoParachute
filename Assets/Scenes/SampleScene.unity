@@ -528,7 +528,6 @@ MonoBehaviour:
   _planePrefab: {fileID: 7717725524220940508, guid: 7ad106c8876b4ac4f85229ce66c4da06, type: 3}
   _floorTransform: {fileID: 481680772}
   _initializePlanesCount: 15
-  _previosWallId: 0
 --- !u!1 &954773536
 GameObject:
   m_ObjectHideFlags: 0
