@@ -10,8 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 287bed5836405844baeb43b7f36a350f, type: 3}
-  m_Name: Level0
+  m_Name: Level_0
   m_EditorClassIdentifier: 
   LevelId: 0
-  Obstacles:
+  IsRotated: 0
+  Walls:
+  - {fileID: 21300000, guid: b80b8d049dba3c54fad52ff1c699c6b6, type: 3}
+  - {fileID: 21300000, guid: aa77421fbb63a2640a244d775cda3b0a, type: 3}
+  - {fileID: 21300000, guid: 46f2ebb2494eb1d4980ecde51bd042d5, type: 3}
   - {fileID: 21300000, guid: 592e2d7e2710be243839e47a4ad123c4, type: 3}
+  Obstacles: []
+  Decoratives:
+  - {fileID: 21300000, guid: 9c7bf0fea9a43fc42a3a92b2d8c0251a, type: 3}
+  - {fileID: 21300000, guid: 440252470c8232a418b257eb338ae6df, type: 3}

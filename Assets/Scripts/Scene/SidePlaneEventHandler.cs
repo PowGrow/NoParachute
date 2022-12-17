@@ -7,6 +7,7 @@ public class SidePlaneEventHandler : MonoBehaviour
     public event Action<SidePlaneEventHandler> DestroyPlaneEvent;
     public void NextPlaneSpawnPositionReached()
     {
+        Debug.Log($"Spawning new plane on: {this.gameObject.transform.position.z}");
         SpawnNewPlaneEvent?.Invoke();
     }
 

@@ -1,31 +1,25 @@
+using System.Linq;
 using UnityEngine;
 
 public class SidePlaneController : MonoBehaviour
 {
     [SerializeField] private GameObject _planePrefab;
     [SerializeField] private Transform _floorTransform;
+    [SerializeField] private int _initializePlanesCount;
 
-    private const int DISTANCE_BEETWEN_PLANES = 2;
+    private int _levelId = 0;
+    private Level _levelInformation;
+    private int _previosWallId;
 
-    private void Initialize(int distanceBetweenCameraAndFloor)
+    private GameObject CreatePlane(int previousWallId)
     {
-        var initializePlanesCount = distanceBetweenCameraAndFloor / DISTANCE_BEETWEN_PLANES;
-
-        for (int i = initializePlanesCount; i > 0; i--)
-        {
-            var plane = Instantiate(_planePrefab, this.transform);
-            float planeAnimationPosition = (float)i / (float)initializePlanesCount;
-            var planeAnimator = plane.GetComponent<Animator>();
-            planeAnimator.Play("PlaneMovement", -1 , planeAnimationPosition);
-        }
-    }
-    private void SpawnNewPlane()
-    {
-        var plane = Instantiate(_planePrefab,this.transform);
+        var plane = Instantiate(_planePrefab, this.transform);
+        var planeSpriteRenderer = plane.GetComponent<SpriteRenderer>();
+        planeSpriteRenderer.sprite = GetNextWall(previousWallId);
         var planeEventHandler = plane.GetComponent<SidePlaneEventHandler>();
-
         planeEventHandler.SpawnNewPlaneEvent += SpawnNewPlaneEventHandler;
         planeEventHandler.DestroyPlaneEvent += DestroyPlaneEventHandler;
+        return plane;
     }
 
     private void DestroyPlaneEventHandler(SidePlaneEventHandler planeEventHandler)
@@ -38,11 +32,18 @@ public class SidePlaneController : MonoBehaviour
 
     private void SpawnNewPlaneEventHandler()
     {
-        SpawnNewPlane();
+        CreatePlane(_previosWallId);
+    }
+
+    private Sprite GetNextWall(int previousWallId)
+    {
+        _previosWallId = ++previousWallId % _levelInformation.Walls.Count();
+        return _levelInformation.Walls[_previosWallId];
     }
 
     private void Awake()
     {
-        Initialize((int)_floorTransform.position.z);
+        _levelInformation = Resources.Load<Level>($"ScriptableObjects/Levels/Level_{_levelId}");
+        CreatePlane(_previosWallId);
     }
 }
