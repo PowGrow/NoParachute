@@ -13,7 +13,6 @@ public class WallEventHandler : MonoBehaviour
     }
     public void NextPlaneSpawnPositionReached()
     {
-        Debug.Log($"Spawning new plane on: {this.gameObject.transform.position.z}");
         SpawnNewPlaneEvent?.Invoke();
     }
 

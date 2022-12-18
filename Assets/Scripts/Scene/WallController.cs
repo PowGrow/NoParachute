@@ -1,52 +1,32 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class WallController : MonoBehaviour
 {
     [SerializeField] private GameObject _wallPrefab;
     [SerializeField] private Transform _bottomTransform;
-    [SerializeField]private float _rotationStep;
 
-    private int _levelId = 0;
-    private Level _currentLevel;
-    private float _currentRotation;
-    private BorderController _borderController;
+    private List<IWallTransformation> _wallTransformations;
 
     public event Action<WallEventHandler> OnWallCreated;
     public event Action<WallEventHandler> OnWallDestoryed;
 
-    private GameObject CreatePlane()
+    private void CreatePlane()
     {
-        var wall = Instantiate(_wallPrefab, this.transform);
-        SetWallSprite(wall);
-        TryToMirrorWall(wall);
-        if (_currentLevel.IsRotated)
-            RotateWall(wall);
-        var wallEventHandler = wall.GetComponent<WallEventHandler>();
-        wallEventHandler.SpawnNewPlaneEvent += SpawnNewPlaneEventHandler;
-        wallEventHandler.DestroyPlaneEvent += DestroyPlaneEventHandler;
-        OnWallCreated?.Invoke(wallEventHandler);
-        return wall;
+        var wallObject = Instantiate(_wallPrefab, this.transform);
+        var wall = wallObject.GetComponent<Wall>();
+        foreach(IWallTransformation wallTransformation in _wallTransformations)
+        {
+            wallTransformation.WallTransform(wall);
+        }
+
+        wall.EventHandler.SpawnNewPlaneEvent += SpawnNewPlaneEventHandler;
+        wall.EventHandler.DestroyPlaneEvent += DestroyPlaneEventHandler;
+        OnWallCreated?.Invoke(wall.EventHandler);
     }
-    private void SetWallSprite(GameObject wall)
-    {
-        var wallSpriteRenderer = wall.GetComponent<SpriteRenderer>();
-        var randomWallId = Random.Range(0, _currentLevel.Walls.Count());
-        wallSpriteRenderer.sprite = _currentLevel.Walls[randomWallId];
-    }
-    private void RotateWall(GameObject plane)
-    {
-        _currentRotation += _rotationStep;
-        plane.transform.rotation = Quaternion.Euler(0, 0, _currentRotation);
-    }
-    private void TryToMirrorWall(GameObject plane)
-    {
-        var random = Random.Range(0, 100);
-        if (random > 50)
-            plane.transform.localScale = new Vector2(-1, -1);
-    }
+
     private void SpawnNewPlaneEventHandler()
     {
         CreatePlane();
@@ -57,16 +37,16 @@ public class WallController : MonoBehaviour
         wallEventHandler.SpawnNewPlaneEvent -= SpawnNewPlaneEventHandler;
         wallEventHandler.DestroyPlaneEvent -= DestroyPlaneEventHandler;
 
-        Destroy(wallEventHandler.gameObject);
+        Destroy(wallEventHandler.transform.parent.gameObject);
     }
     private void Awake()
     {
-        _borderController = GetComponentInChildren<BorderController>();
-        _currentLevel = Resources.Load<Level>($"ScriptableObjects/Levels/Level_{_levelId}");
+        _wallTransformations = GetComponentsInChildren<IWallTransformation>().ToList();
     }
 
     private void Start()
     {
         CreatePlane();
     }
+
 }
