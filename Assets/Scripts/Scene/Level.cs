@@ -5,7 +5,6 @@ using UnityEngine;
 public class Level : ScriptableObject
 {
     public int LevelId;
-    public bool IsRotated;
     public List<Sprite> Walls;
     public List<Sprite> Obstacles;
     public List<Sprite> Decoratives;
