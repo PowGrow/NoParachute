@@ -599,6 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isActive: 1
+  _decorativesSpawnChance: 5
 --- !u!114 &714897225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,7 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b232cbc79f295b641a5804ac56681bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isActive: 0
+  _isActive: 1
   _deltaStep: 3
   _deltaTime: 5
 --- !u!114 &714897228
@@ -639,7 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8db93e23178e4bc41bf1b61e25e80cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isActive: 0
+  _isActive: 1
   _deltaStep: 0.01
   _deltaTime: 2
 --- !u!1 &954773536

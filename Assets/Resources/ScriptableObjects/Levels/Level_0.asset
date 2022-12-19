@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: Level_0
   m_EditorClassIdentifier: 
   LevelId: 0
-  IsRotated: 0
   Walls:
   - {fileID: 21300000, guid: b80b8d049dba3c54fad52ff1c699c6b6, type: 3}
   - {fileID: 21300000, guid: aa77421fbb63a2640a244d775cda3b0a, type: 3}
+  - {fileID: 21300000, guid: 46f2ebb2494eb1d4980ecde51bd042d5, type: 3}
+  - {fileID: 21300000, guid: 592e2d7e2710be243839e47a4ad123c4, type: 3}
+  - {fileID: 21300000, guid: f43b3e36c9cc0564fa5b8811e3a9e83e, type: 3}
+  - {fileID: 21300000, guid: 1192212d9446fa346b51d917c9b4dc8a, type: 3}
   - {fileID: 21300000, guid: 46f2ebb2494eb1d4980ecde51bd042d5, type: 3}
   - {fileID: 21300000, guid: 592e2d7e2710be243839e47a4ad123c4, type: 3}
   Obstacles: []
