@@ -5,31 +5,39 @@ using UnityEngine;
 
 public class WallController : MonoBehaviour
 {
-    [SerializeField] private GameObject _wallPrefab;
-    [SerializeField] private Transform _bottomTransform;
-
+    private GameObject _wallPrefab;
     private List<IWallTransformation> _wallTransformations;
+    private IProgressHandler _progressHandler;
 
     public event Action<WallEventHandler> OnWallCreated;
     public event Action<WallEventHandler> OnWallDestoryed;
 
-    private void CreatePlane()
+    public void Initialize(GameObject wallPrefab, IProgressHandler progressHandler)
     {
-        var wallObject = Instantiate(_wallPrefab, this.transform);
+        _wallPrefab = wallPrefab;
+        _progressHandler = progressHandler;
+        _wallTransformations = GetComponentsInChildren<IWallTransformation>().ToList();
+        this.gameObject.SetActive(true);
+    }
+    private void CreatePlane(GameObject wallPrefab,List<IWallTransformation> wallTransformations,IProgressHandler progressHandler)
+    {
+        var wallObject = Instantiate(wallPrefab, this.transform);
         var wall = wallObject.GetComponent<Wall>();
-        foreach(IWallTransformation wallTransformation in _wallTransformations)
+        foreach(IWallTransformation wallTransformation in wallTransformations)
         {
             wallTransformation.WallTransform(wall);
         }
+        progressHandler.OnProgress();
 
         wall.EventHandler.SpawnNewPlaneEvent += SpawnNewPlaneEventHandler;
         wall.EventHandler.DestroyPlaneEvent += DestroyPlaneEventHandler;
+
         OnWallCreated?.Invoke(wall.EventHandler);
     }
 
     private void SpawnNewPlaneEventHandler()
     {
-        CreatePlane();
+        CreatePlane(_wallPrefab,_wallTransformations, _progressHandler);
     }
     private void DestroyPlaneEventHandler(WallEventHandler wallEventHandler)
     {
@@ -39,14 +47,9 @@ public class WallController : MonoBehaviour
 
         Destroy(wallEventHandler.transform.parent.gameObject);
     }
-    private void Awake()
-    {
-        _wallTransformations = GetComponentsInChildren<IWallTransformation>().ToList();
-    }
 
     private void Start()
     {
-        CreatePlane();
+        CreatePlane(_wallPrefab, _wallTransformations, _progressHandler);
     }
-
 }

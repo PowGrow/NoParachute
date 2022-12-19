@@ -2,11 +2,18 @@ using UnityEngine;
 
 public class BorderController : MonoBehaviour
 {
-    [SerializeField] private WallController _wallController;
+    private WallController _wallController;
+
+    public void Initialize(WallController wallController)
+    {
+        _wallController = wallController;
+        this.gameObject.SetActive(true);
+    }
+
     public void RefreshBorderRotationAndPosition(Quaternion rotation, Vector3 position)
     {
-        this.transform.rotation = rotation;
-        this.transform.position = position;
+        transform.rotation = rotation;
+        transform.position = position;
     }
 
     private void SubscribeOnWallEvents(WallEventHandler wallEventHandler)

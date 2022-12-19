@@ -7,6 +7,13 @@ public class SpriteChanger : MonoBehaviour, IWallTransformation
     [SerializeField] private bool _isActive;
     [SerializeField] private int _decorativesSpawnChance;
 
+    private ISpriteProvider _spriteProvider;
+
+    public void Initialize(ISpriteProvider spriteProvider)
+    {
+        _spriteProvider = spriteProvider;
+    }
+
     public bool IsActive
     {
         get { return _isActive; }
@@ -17,16 +24,10 @@ public class SpriteChanger : MonoBehaviour, IWallTransformation
     {
         if(IsActive)
         {
-            wall.SpriteRenderer.sprite = GetRandomWallSprite(ProjectContext.Instance.SpriteProvider.Walls, ProjectContext.Instance.SpriteProvider.WallsSpawnChance);
-            wall.DecorativesSpriteRenderer.sprite = GetRandomDecoratives(ProjectContext.Instance.SpriteProvider.Decoratives, _decorativesSpawnChance);
+            wall.SpriteRenderer.sprite = GetRandomWallSprite(_spriteProvider.Walls, _spriteProvider.WallsSpawnChance);
+            wall.DecorativesSpriteRenderer.sprite = GetRandomDecoratives(_spriteProvider.Decoratives, _decorativesSpawnChance);
         }
     }
-
-    //private Sprite GetRandomWallSprite(List<Sprite> wallsSpriteList)
-    //{
-    //    var randomWallId = Random.Range(0, wallsSpriteList.Count());
-    //    return wallsSpriteList[randomWallId];
-    //}
 
     private Sprite GetRandomWallSprite(List<Sprite> wallsSpriteList, List<int> wallsSpawnChanceList)
     {

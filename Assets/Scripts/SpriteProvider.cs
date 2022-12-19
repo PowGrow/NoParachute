@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpriteProvider
+public class SpriteProvider : ISpriteProvider
 {
     private Level _currentLevel;
 
@@ -26,8 +26,8 @@ public class SpriteProvider
         get { return _currentLevel.Decoratives; }
     }
 
-    public SpriteProvider(int levelId)
+    public SpriteProvider(Level currentLevel)
     {
-        _currentLevel = Resources.Load<Level>($"ScriptableObjects/Levels/Level_{levelId}");
+        _currentLevel = currentLevel;
     }
 }

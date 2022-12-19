@@ -1171,6 +1171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb52ebc3be46144e887f71e7c6f064b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wallControllerPrefab: {fileID: 8821822284038151168, guid: 2e10e99ae925c9f49beb6a3335b39e47, type: 3}
+  _wallPrefab: {fileID: 8227342704351982688, guid: 4b7c4c91acdd7934ab7515a2892ca363, type: 3}
+  _borderControllerPrefab: {fileID: 7939413539867911473, guid: 1c6e139980e0a6e40aab1a7c71e20f17, type: 3}
 --- !u!4 &1375465412
 Transform:
   m_ObjectHideFlags: 0
