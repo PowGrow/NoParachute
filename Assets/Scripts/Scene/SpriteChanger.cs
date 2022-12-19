@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -16,23 +17,38 @@ public class SpriteChanger : MonoBehaviour, IWallTransformation
     {
         if(IsActive)
         {
-            wall.SpriteRenderer.sprite = GetRandomWallSprite();
-            wall.DecorativesSpriteRenderer.sprite = GetRandomDecoratives();
+            wall.SpriteRenderer.sprite = GetRandomWallSprite(ProjectContext.Instance.SpriteProvider.Walls, ProjectContext.Instance.SpriteProvider.WallsSpawnChance);
+            wall.DecorativesSpriteRenderer.sprite = GetRandomDecoratives(ProjectContext.Instance.SpriteProvider.Decoratives, _decorativesSpawnChance);
         }
     }
 
-    private Sprite GetRandomWallSprite()
+    //private Sprite GetRandomWallSprite(List<Sprite> wallsSpriteList)
+    //{
+    //    var randomWallId = Random.Range(0, wallsSpriteList.Count());
+    //    return wallsSpriteList[randomWallId];
+    //}
+
+    private Sprite GetRandomWallSprite(List<Sprite> wallsSpriteList, List<int> wallsSpawnChanceList)
     {
-        var randomWallId = Random.Range(0, ProjectContext.Instance.SpriteProvider.Walls.Count());
-        return ProjectContext.Instance.SpriteProvider.Walls[randomWallId];
+        var summChance = wallsSpawnChanceList.Sum();
+        var randomValue = Random.Range(1,summChance + 1);
+        var counter = 0;
+        for(int i=0; i < wallsSpawnChanceList.Count(); i++)
+        {
+            counter += wallsSpawnChanceList[i];
+            if (randomValue <= counter)
+                return wallsSpriteList[i];
+        }
+        Debug.LogError("WallsSpawnChanceList not full");
+        return null;
     }
 
-    private Sprite GetRandomDecoratives()
+    private Sprite GetRandomDecoratives(List<Sprite> decorativesSritelist,int spawnChance)
     {
-        if(Random.Range(1,101) <= _decorativesSpawnChance)
+        if(Random.Range(1,101) <= spawnChance)
         {
-            var randomDecorativesId = Random.Range(0, ProjectContext.Instance.SpriteProvider.Decoratives.Count());
-            return ProjectContext.Instance.SpriteProvider.Decoratives[randomDecorativesId];
+            var randomDecorativesId = Random.Range(0, decorativesSritelist.Count());
+            return decorativesSritelist[randomDecorativesId];
         }
         return null;
     }

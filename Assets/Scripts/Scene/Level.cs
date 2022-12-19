@@ -6,6 +6,7 @@ public class Level : ScriptableObject
 {
     public int LevelId;
     public List<Sprite> Walls;
+    public List<int> WallsSpawnChance;
     public List<Sprite> Obstacles;
     public List<Sprite> Decoratives;
 }

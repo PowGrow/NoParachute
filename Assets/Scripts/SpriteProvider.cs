@@ -13,6 +13,10 @@ public class SpriteProvider
     {
         get { return _currentLevel.Walls; }
     }
+    public List<int> WallsSpawnChance
+    {
+        get { return _currentLevel.WallsSpawnChance; }
+    }
     public List<Sprite> Obstacles
     {
         get { return _currentLevel.Obstacles; }
