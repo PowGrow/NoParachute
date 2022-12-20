@@ -25,12 +25,15 @@ public class ProgressHandler : MonoBehaviour, IProgressHandler
 
     public void OnProgress()
     {
-        _levelProgress++;
         if (_startObstacleDelay > 0)
             _startObstacleDelay--;
         else
+        {
+            _levelProgress++;
             _previousObstacleDelta++;
-        if (_levelProgress >= _levelLength)
-            Debug.Log("Finish!");
+            if (_levelProgress >= _levelLength)
+                Debug.Log("Finish!");
+        }
+
     }
 }
