@@ -6,6 +6,7 @@ public class ProgressHandler : MonoBehaviour, IProgressHandler
     private int _levelLength;
     private int _previousObstacleDelta;
     private int _startObstacleDelay;
+    private int _obstacleToCreateIndex;
 
     public int LevelProgress
     {
@@ -16,11 +17,15 @@ public class ProgressHandler : MonoBehaviour, IProgressHandler
         get { return _previousObstacleDelta; }
         set { _previousObstacleDelta = value; }
     }
-
-    public ProgressHandler(Level currentLevel,int startObstacleDealy)
+    public int ObstacleToCreateIndex
     {
-        _levelLength = currentLevel.LevelLength;
-        _startObstacleDelay = startObstacleDealy;
+        get { return _obstacleToCreateIndex; }
+        set { _obstacleToCreateIndex = value; }
+    }
+
+    public ProgressHandler(LevelData currentLevel)
+    {
+        _startObstacleDelay = currentLevel.StartObstacleDelay;
     }
 
     public void OnProgress()
@@ -31,8 +36,6 @@ public class ProgressHandler : MonoBehaviour, IProgressHandler
         {
             _levelProgress++;
             _previousObstacleDelta++;
-            if (_levelProgress >= _levelLength)
-                Debug.Log("Finish!");
         }
 
     }

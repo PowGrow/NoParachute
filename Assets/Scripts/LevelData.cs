@@ -10,7 +10,7 @@ public class LevelData : ScriptableObject
     public float FallSpeed;
     public RotationMode RotationMode;
     public float RotationSpeed;
-    public int LevelLength;
+    public int StartObstacleDelay;
     public List<Sprite> Walls;
     public List<Sprite> Decoratives;
     public List<int> WallsSpawnChance;

@@ -19,10 +19,10 @@ public class ProjectContext : MonoBehaviour
 
     public void Initialize(int levelId)
     {
-        var currentLevel = Resources.Load<Level>($"ScriptableObjects/Levels/Level_{levelId}");
+        var currentLevel = Resources.Load<LevelData>($"ScriptableObjects/Levels/Level_{levelId}");
         var spriteProvider = new SpriteProvider(currentLevel);
         var obstacleProvider = new ObstacleProvider(currentLevel);
-        var progressHandler = new ProgressHandler(currentLevel,_startObstacleDelay);
+        var progressHandler = new ProgressHandler(currentLevel);
         GameContext = new GameContext(_wallControllerPrefab, _wallContainer, _borderControllerPrefab, progressHandler, spriteProvider, obstacleProvider);
     }
 }

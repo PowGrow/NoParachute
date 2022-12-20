@@ -3,15 +3,24 @@ using UnityEngine;
 
 public class ObstacleProvider : IObstacleProvider
 {
-    private Level _currentLevel;
+    private LevelData _currentLevel;
 
-    public ObstacleProvider(Level currentLevel)
+    public ObstacleProvider(LevelData currentLevel)
     {
         _currentLevel = currentLevel;
     }
 
-    public List<GameObject> Obstacles
+    public List<int> ObstacleCreateDistance
     {
-        get { return _currentLevel.Obstacles; }
+        get { return _currentLevel.ObstacleCreateDistance; }
+    }
+
+    public List<GameObject> ObstacleToCreate
+    {
+        get { return _currentLevel.ObstacleToCreate; }
+    }
+    public List<float> ObstacleCreateRotation
+    {
+        get { return _currentLevel.ObstacleCreateRotation; }
     }
 }

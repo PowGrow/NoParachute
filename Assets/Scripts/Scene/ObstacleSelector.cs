@@ -3,19 +3,26 @@ using UnityEngine;
 
 public class ObstacleSelector : MonoBehaviour
 {
-    [SerializeField] private int _chanceToCreateObstacle;
-    [SerializeField] private int _obstacleCreationDelay;
     private IObstacleProvider _obstacleProvider;
+    private IProgressHandler _progressHandler;
+    private int _obstacleToCreateIndex;
 
-    private void RandomObstacleCreate()
+    private void RandomObstacleCreate(GameObject obstaclePrefab, Quaternion rotation)
     {
-        var randomValue = Random.Range(0, _obstacleProvider.Obstacles.Count());
-        var obstacle = Instantiate(_obstacleProvider.Obstacles[randomValue],gameObject.transform);
-        ProjectContext.Instance.GameContext.ProgressHandler.PreviousObstacleDelta = 0;
+        var obstacle = Instantiate(obstaclePrefab, gameObject.transform);
+        obstacle.transform.rotation = rotation;
+        Debug.Log($"Obstacle {obstacle.name} created");
+        var parentWall = gameObject.transform.parent.transform;
+        SwitchCreationIndexToNext();
+    }
+    private void SwitchCreationIndexToNext()
+    {
+        _progressHandler.PreviousObstacleDelta = 0;
+        _progressHandler.ObstacleToCreateIndex++;
     }
     private bool IsObstacleCanBeCreated()
     {
-        if (_obstacleCreationDelay < ProjectContext.Instance.GameContext.ProgressHandler.PreviousObstacleDelta)
+        if (_obstacleProvider.ObstacleCreateDistance[_obstacleToCreateIndex] == ProjectContext.Instance.GameContext.ProgressHandler.PreviousObstacleDelta)
             return true;
         else
             return false;
@@ -24,11 +31,13 @@ public class ObstacleSelector : MonoBehaviour
     private void Awake()
     {
         _obstacleProvider = ProjectContext.Instance.GameContext.ObstacleProvider;
-        if(IsObstacleCanBeCreated())
+        _progressHandler = ProjectContext.Instance.GameContext.ProgressHandler;
+        _obstacleToCreateIndex = _progressHandler.ObstacleToCreateIndex;
+        if (IsObstacleCanBeCreated())
         {
-            var randomValue = Random.Range(1, 101);
-            if(randomValue <= _chanceToCreateObstacle)
-                RandomObstacleCreate();
+            var obstaclePrefab = _obstacleProvider.ObstacleToCreate[_obstacleToCreateIndex];
+            var rotation = Quaternion.Euler(0, 0, _obstacleProvider.ObstacleCreateRotation[_obstacleToCreateIndex]);
+            RandomObstacleCreate(obstaclePrefab,rotation);
         }
     }
 }

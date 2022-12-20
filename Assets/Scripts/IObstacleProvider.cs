@@ -3,5 +3,7 @@ using UnityEngine;
 
 public interface IObstacleProvider
 {
-    public List<GameObject> Obstacles { get; }
+    public List<int> ObstacleCreateDistance { get; }
+    public List<GameObject> ObstacleToCreate { get; }
+    public List<float> ObstacleCreateRotation { get; }
 }

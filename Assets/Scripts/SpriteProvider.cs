@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class SpriteProvider : ISpriteProvider
 {
-    private Level _currentLevel;
+    private LevelData _currentLevel;
 
-    public SpriteProvider(Level currentLevel)
+    public SpriteProvider(LevelData currentLevel)
     {
         _currentLevel = currentLevel;
     }

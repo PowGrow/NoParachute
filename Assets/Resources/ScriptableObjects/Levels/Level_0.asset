@@ -9,22 +9,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 287bed5836405844baeb43b7f36a350f, type: 3}
+  m_Script: {fileID: 11500000, guid: 206c4ec46b83c5f4da140675c8b86a23, type: 3}
   m_Name: Level_0
   m_EditorClassIdentifier: 
   LevelId: 0
-  LevelLength: 500
+  LevelName: Tutorial
+  NextLevel: {fileID: 0}
+  FallSpeed: 1
+  RotationMode: 0
+  RotationSpeed: 0
+  StartObstacleDelay: 200
   Walls:
   - {fileID: 21300000, guid: b80b8d049dba3c54fad52ff1c699c6b6, type: 3}
-  - {fileID: 21300000, guid: aa77421fbb63a2640a244d775cda3b0a, type: 3}
-  - {fileID: 21300000, guid: 46f2ebb2494eb1d4980ecde51bd042d5, type: 3}
-  - {fileID: 21300000, guid: 592e2d7e2710be243839e47a4ad123c4, type: 3}
   - {fileID: 21300000, guid: f43b3e36c9cc0564fa5b8811e3a9e83e, type: 3}
+  - {fileID: 21300000, guid: aa77421fbb63a2640a244d775cda3b0a, type: 3}
   - {fileID: 21300000, guid: 1192212d9446fa346b51d917c9b4dc8a, type: 3}
+  - {fileID: 21300000, guid: 46f2ebb2494eb1d4980ecde51bd042d5, type: 3}
   - {fileID: 21300000, guid: 85d5beb733754dc4e923541c3c405711, type: 3}
+  - {fileID: 21300000, guid: 592e2d7e2710be243839e47a4ad123c4, type: 3}
   - {fileID: 21300000, guid: 8370a44c2a0ce6d4185024083e968a09, type: 3}
-  WallsSpawnChance: 1e0000001e00000046000000460000001e0000001e0000004600000046000000
+  Decoratives:
+  - {fileID: 21300000, guid: 9c7bf0fea9a43fc42a3a92b2d8c0251a, type: 3}
+  - {fileID: 21300000, guid: 440252470c8232a418b257eb338ae6df, type: 3}
+  WallsSpawnChance: 1e0000001e0000001e0000001e00000046000000460000004600000046000000
   Obstacles:
+  - {fileID: 5332014822990524157, guid: c993608611d26e94e8cbc98f2041d4f7, type: 3}
+  - {fileID: 5226371992955012383, guid: 3b64583f51d6d8f4aba78b9283de6ed4, type: 3}
   - {fileID: 1650788048834285807, guid: 37b2f812bc83bd0439d391fba724e215, type: 3}
   - {fileID: 2068963900901570484, guid: 942b7c961246dd7478a8fcb317877871, type: 3}
   - {fileID: 2823569703243352518, guid: 295cabadfc8f2bc44a81c858b9388bde, type: 3}
@@ -35,6 +45,74 @@ MonoBehaviour:
   - {fileID: 2581940697886086351, guid: 8f2079b8ddc25304ba671e02f18d51ae, type: 3}
   - {fileID: 6134649707141314644, guid: f1fc3702c0895404b9bc9f6c2053afcc, type: 3}
   - {fileID: 2011602632950871401, guid: 819d87b805a3b524ca17ab4b22ba1951, type: 3}
-  Decoratives:
-  - {fileID: 21300000, guid: 9c7bf0fea9a43fc42a3a92b2d8c0251a, type: 3}
-  - {fileID: 21300000, guid: 440252470c8232a418b257eb338ae6df, type: 3}
+  ObstacleCreateDistance: 28000000b4000000320000005f00000037000000320000001e0000000a00000014000000460000004b0000003c0000003e0000001e000000280000001e000000320000001e000000500000003c000000190000001e000000140000001e000000140000001400000014000000460000001e0000001e000000280000001e0000001e00000028000000
+  ObstacleToCreate:
+  - {fileID: 5226371992955012383, guid: 3b64583f51d6d8f4aba78b9283de6ed4, type: 3}
+  - {fileID: 5332014822990524157, guid: c993608611d26e94e8cbc98f2041d4f7, type: 3}
+  - {fileID: 2011602632950871401, guid: 819d87b805a3b524ca17ab4b22ba1951, type: 3}
+  - {fileID: 7808974053479764982, guid: 2295608deb72f3b40849a2360dd5bc6b, type: 3}
+  - {fileID: 7808974053479764982, guid: 2295608deb72f3b40849a2360dd5bc6b, type: 3}
+  - {fileID: 2068963900901570484, guid: 942b7c961246dd7478a8fcb317877871, type: 3}
+  - {fileID: 7808974053479764982, guid: 2295608deb72f3b40849a2360dd5bc6b, type: 3}
+  - {fileID: 5332014822990524157, guid: c993608611d26e94e8cbc98f2041d4f7, type: 3}
+  - {fileID: 7808974053479764982, guid: 2295608deb72f3b40849a2360dd5bc6b, type: 3}
+  - {fileID: 5226371992955012383, guid: 3b64583f51d6d8f4aba78b9283de6ed4, type: 3}
+  - {fileID: 2581940697886086351, guid: 8f2079b8ddc25304ba671e02f18d51ae, type: 3}
+  - {fileID: 6134649707141314644, guid: f1fc3702c0895404b9bc9f6c2053afcc, type: 3}
+  - {fileID: 1650788048834285807, guid: 37b2f812bc83bd0439d391fba724e215, type: 3}
+  - {fileID: 2823569703243352518, guid: 295cabadfc8f2bc44a81c858b9388bde, type: 3}
+  - {fileID: 8506994508580325899, guid: 1507c6e2109d0e4439d32c2217592d00, type: 3}
+  - {fileID: 2823569703243352518, guid: 295cabadfc8f2bc44a81c858b9388bde, type: 3}
+  - {fileID: 773042076536659004, guid: 456b82408089637428ed9f4c5c6d0aa6, type: 3}
+  - {fileID: 8506994508580325899, guid: 1507c6e2109d0e4439d32c2217592d00, type: 3}
+  - {fileID: 5226371992955012383, guid: 3b64583f51d6d8f4aba78b9283de6ed4, type: 3}
+  - {fileID: 5332014822990524157, guid: c993608611d26e94e8cbc98f2041d4f7, type: 3}
+  - {fileID: 5226371992955012383, guid: 3b64583f51d6d8f4aba78b9283de6ed4, type: 3}
+  - {fileID: 1650788048834285807, guid: 37b2f812bc83bd0439d391fba724e215, type: 3}
+  - {fileID: 5226371992955012383, guid: 3b64583f51d6d8f4aba78b9283de6ed4, type: 3}
+  - {fileID: 5332014822990524157, guid: c993608611d26e94e8cbc98f2041d4f7, type: 3}
+  - {fileID: 3311487364120324207, guid: 0330ccc2c59124b4ba414f3066ef8f8c, type: 3}
+  - {fileID: 8506994508580325899, guid: 1507c6e2109d0e4439d32c2217592d00, type: 3}
+  - {fileID: 5332014822990524157, guid: c993608611d26e94e8cbc98f2041d4f7, type: 3}
+  - {fileID: 3311487364120324207, guid: 0330ccc2c59124b4ba414f3066ef8f8c, type: 3}
+  - {fileID: 6134649707141314644, guid: f1fc3702c0895404b9bc9f6c2053afcc, type: 3}
+  - {fileID: 773042076536659004, guid: 456b82408089637428ed9f4c5c6d0aa6, type: 3}
+  - {fileID: 8506994508580325899, guid: 1507c6e2109d0e4439d32c2217592d00, type: 3}
+  - {fileID: 8506994508580325899, guid: 1507c6e2109d0e4439d32c2217592d00, type: 3}
+  - {fileID: 8506994508580325899, guid: 1507c6e2109d0e4439d32c2217592d00, type: 3}
+  - {fileID: 6134649707141314644, guid: f1fc3702c0895404b9bc9f6c2053afcc, type: 3}
+  ObstacleCreateRotation:
+  - 0
+  - 180
+  - 0
+  - 180
+  - 0
+  - 0
+  - 270
+  - 90
+  - 90
+  - 270
+  - 0
+  - 90
+  - 90
+  - 0
+  - 0
+  - 270
+  - 180
+  - 90
+  - 270
+  - 270
+  - 180
+  - 90
+  - 0
+  - 180
+  - 0
+  - 270
+  - 90
+  - 90
+  - 90
+  - 90
+  - 0
+  - 90
+  - 180
+  - 0
