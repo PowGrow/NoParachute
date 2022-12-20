@@ -2,31 +2,16 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class SpriteChanger : MonoBehaviour, IWallTransformation
+public class SpriteSelector : MonoBehaviour
 {
-    [SerializeField] private bool _isActive;
     [SerializeField] private int _decorativesSpawnChance;
 
     private ISpriteProvider _spriteProvider;
 
-    public void Initialize(ISpriteProvider spriteProvider)
+    public void SelectSpriteFromPool(Wall wall, ISpriteProvider spriteProvider)
     {
-        _spriteProvider = spriteProvider;
-    }
-
-    public bool IsActive
-    {
-        get { return _isActive; }
-        set { _isActive = value; }
-    }
-
-    public void WallTransform(Wall wall)
-    {
-        if(IsActive)
-        {
-            wall.SpriteRenderer.sprite = GetRandomWallSprite(_spriteProvider.Walls, _spriteProvider.WallsSpawnChance);
-            wall.DecorativesSpriteRenderer.sprite = GetRandomDecoratives(_spriteProvider.Decoratives, _decorativesSpawnChance);
-        }
+        wall.SpriteRenderer.sprite = GetRandomWallSprite(spriteProvider.Walls, spriteProvider.WallsSpawnChance);
+        wall.DecorativesSpriteRenderer.sprite = GetRandomDecoratives(spriteProvider.Decoratives, _decorativesSpawnChance);
     }
 
     private Sprite GetRandomWallSprite(List<Sprite> wallsSpriteList, List<int> wallsSpawnChanceList)
@@ -52,5 +37,12 @@ public class SpriteChanger : MonoBehaviour, IWallTransformation
             return decorativesSritelist[randomDecorativesId];
         }
         return null;
+    }
+
+    private void Awake()
+    {
+        _spriteProvider = ProjectContext.Instance.GameContext.SpriteProvider;
+        var wall = GetComponentInParent<Wall>();
+        SelectSpriteFromPool(wall,_spriteProvider);
     }
 }

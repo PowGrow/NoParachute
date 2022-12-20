@@ -5,10 +5,11 @@ public class SpriteProvider : ISpriteProvider
 {
     private Level _currentLevel;
 
-    public int LevelId
+    public SpriteProvider(Level currentLevel)
     {
-        get { return _currentLevel.LevelId; }
+        _currentLevel = currentLevel;
     }
+
     public List<Sprite> Walls
     {
         get { return _currentLevel.Walls; }
@@ -17,17 +18,8 @@ public class SpriteProvider : ISpriteProvider
     {
         get { return _currentLevel.WallsSpawnChance; }
     }
-    public List<Sprite> Obstacles
-    {
-        get { return _currentLevel.Obstacles; }
-    }
     public List<Sprite> Decoratives
     {
         get { return _currentLevel.Decoratives; }
-    }
-
-    public SpriteProvider(Level currentLevel)
-    {
-        _currentLevel = currentLevel;
     }
 }

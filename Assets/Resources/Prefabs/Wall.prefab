@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4327448203559132087}
   - component: {fileID: 740380083876384646}
   - component: {fileID: 4736911609168126855}
+  - component: {fileID: -6229371750227427030}
+  - component: {fileID: 5154164826904706384}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -76,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 46f2ebb2494eb1d4980ecde51bd042d5, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0.20000002, g: 0.20000002, b: 0.20000002, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,7 +86,7 @@ SpriteRenderer:
   m_Size: {x: 8, y: 8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &740380083876384646
@@ -119,6 +121,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1186a2aaf0c88c04f87be02242d15723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6229371750227427030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7252811296323004855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85615898f9e3d084789ecd4d01e8021f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _decorativesSpawnChance: 8
+--- !u!114 &5154164826904706384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7252811296323004855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ef5ef83f2c16b4096b0a51f259d876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chanceToCreateObstacle: 5
+  _obstacleCreationDelay: 10
 --- !u!1 &8022401513235630083
 GameObject:
   m_ObjectHideFlags: 0

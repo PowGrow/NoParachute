@@ -8,6 +8,6 @@ public class Level : ScriptableObject
     public int LevelLength;
     public List<Sprite> Walls;
     public List<int> WallsSpawnChance;
-    public List<Sprite> Obstacles;
+    public List<GameObject> Obstacles;
     public List<Sprite> Decoratives;
 }

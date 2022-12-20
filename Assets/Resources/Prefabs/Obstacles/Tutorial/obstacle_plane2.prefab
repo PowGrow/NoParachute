@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5619078262059933765}
   - component: {fileID: 3403716667721772646}
   - component: {fileID: 1553306204847855807}
+  - component: {fileID: -8849851661115967276}
   m_Layer: 0
   m_Name: obstacle_plane2
   m_TagString: Untagged
@@ -122,3 +123,23 @@ PolygonCollider2D:
       - {x: 0.33578426, y: -0.04451297}
       - {x: 0.21137834, y: -0.3093787}
       - {x: -0.19165882, y: -0.35073254}
+--- !u!95 &-8849851661115967276
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650788048834285807}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f52a482717a0fbf45b70e8fa8b60361d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

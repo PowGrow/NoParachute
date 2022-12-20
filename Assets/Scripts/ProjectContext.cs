@@ -3,20 +3,13 @@ using UnityEngine;
 public class ProjectContext : MonoBehaviour
 {
     [SerializeField] private GameObject _wallControllerPrefab;
-    [SerializeField] private GameObject _wallPrefab;
+    [SerializeField] private GameObject _wallContainer;
     [SerializeField] private GameObject _borderControllerPrefab;
+    [SerializeField] private int _startObstacleDelay;
 
-    private int _levelId;
-    public ISpriteProvider SpriteProvider { get; private set; }
-    public IProgressHandler LevelProgressHandler { get; private set; }
+    public int LevelId { get; set; }
     public GameContext GameContext { get; private set; }
     public static ProjectContext Instance { get; private set; }
-
-    public int LevelId
-    {
-        get { return _levelId; }
-        set { _levelId = value; }
-    }
 
     private void Awake()
     {
@@ -26,10 +19,10 @@ public class ProjectContext : MonoBehaviour
 
     public void Initialize(int levelId)
     {
-        
         var currentLevel = Resources.Load<Level>($"ScriptableObjects/Levels/Level_{levelId}");
-        SpriteProvider = new SpriteProvider(currentLevel);
-        LevelProgressHandler = new LevelProgressHandler(currentLevel);
-        GameContext = new GameContext(_wallControllerPrefab, _wallPrefab, _borderControllerPrefab, LevelProgressHandler, SpriteProvider);
+        var spriteProvider = new SpriteProvider(currentLevel);
+        var obstacleProvider = new ObstacleProvider(currentLevel);
+        var progressHandler = new ProgressHandler(currentLevel,_startObstacleDelay);
+        GameContext = new GameContext(_wallControllerPrefab, _wallContainer, _borderControllerPrefab, progressHandler, spriteProvider, obstacleProvider);
     }
 }

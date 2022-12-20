@@ -16,7 +16,6 @@ public class WallController : MonoBehaviour
     {
         _wallPrefab = wallPrefab;
         _progressHandler = progressHandler;
-        _wallTransformations = GetComponentsInChildren<IWallTransformation>().ToList();
         this.gameObject.SetActive(true);
     }
     private void CreatePlane(GameObject wallPrefab,List<IWallTransformation> wallTransformations,IProgressHandler progressHandler)
@@ -46,6 +45,11 @@ public class WallController : MonoBehaviour
         wallEventHandler.DestroyPlaneEvent -= DestroyPlaneEventHandler;
 
         Destroy(wallEventHandler.transform.parent.gameObject);
+    }
+
+    private void Awake()
+    {
+        _wallTransformations = GetComponentsInChildren<IWallTransformation>().ToList();
     }
 
     private void Start()
