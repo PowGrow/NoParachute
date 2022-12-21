@@ -1,10 +1,9 @@
-using System.Linq;
 using UnityEngine;
 
 public class ObstacleSelector : MonoBehaviour
 {
     private IObstacleProvider _obstacleProvider;
-    private IProgressHandler _progressHandler;
+    private IProgressProvider _progressHandler;
     private int _obstacleToCreateIndex;
 
     private void RandomObstacleCreate(GameObject obstaclePrefab, Quaternion rotation)
@@ -22,7 +21,7 @@ public class ObstacleSelector : MonoBehaviour
     }
     private bool IsObstacleCanBeCreated()
     {
-        if (_obstacleProvider.ObstacleCreateDistance[_obstacleToCreateIndex] == ProjectContext.Instance.GameContext.ProgressHandler.PreviousObstacleDelta)
+        if (_obstacleProvider.ObstacleCreateDistance[_obstacleToCreateIndex] == ProjectContext.Instance.GameContext.ProgressProvider.PreviousObstacleDelta)
             return true;
         else
             return false;
@@ -31,7 +30,7 @@ public class ObstacleSelector : MonoBehaviour
     private void Awake()
     {
         _obstacleProvider = ProjectContext.Instance.GameContext.ObstacleProvider;
-        _progressHandler = ProjectContext.Instance.GameContext.ProgressHandler;
+        _progressHandler = ProjectContext.Instance.GameContext.ProgressProvider;
         _obstacleToCreateIndex = _progressHandler.ObstacleToCreateIndex;
         if (IsObstacleCanBeCreated())
         {

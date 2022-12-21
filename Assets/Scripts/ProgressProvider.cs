@@ -1,12 +1,11 @@
-using UnityEngine;
-
-public class ProgressHandler : MonoBehaviour, IProgressHandler
+public class ProgressProvider : IProgressProvider, IProvider
 {
     private int _levelProgress;
-    private int _levelLength;
     private int _previousObstacleDelta;
     private int _startObstacleDelay;
     private int _obstacleToCreateIndex;
+
+    public Status Status { get; private set; }
 
     public int LevelProgress
     {
@@ -23,9 +22,11 @@ public class ProgressHandler : MonoBehaviour, IProgressHandler
         set { _obstacleToCreateIndex = value; }
     }
 
-    public ProgressHandler(LevelData currentLevel)
+    public ProgressProvider(LevelData currentLevel)
     {
+        Status = Status.Starting;
         _startObstacleDelay = currentLevel.StartObstacleDelay;
+        Status = Status.Running;
     }
 
     public void OnProgress()

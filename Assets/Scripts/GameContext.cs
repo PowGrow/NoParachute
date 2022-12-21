@@ -1,36 +1,21 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameContext : MonoBehaviour
 {
-    private ISpriteProvider _spriteProvider;
-    private IObstacleProvider _obstacleProvider;
-    private IProgressHandler _progressHandler;
+    public ISpriteProvider SpriteProvider { get; private set; }
+    public IProgressProvider ProgressProvider { get; private set; }
+    public IObstacleProvider ObstacleProvider { get; private set; }
 
-    public ISpriteProvider SpriteProvider
+    public GameContext(Dictionary<PrefabType,GameObject> prefabs, Dictionary<ProviderType,IProvider> providerList)
     {
-        get { return _spriteProvider; }
-        private set { _spriteProvider = value; }
-    }
-    public IProgressHandler ProgressHandler
-    {
-        get { return _progressHandler; }
-        private set { _progressHandler = value; }
-    }
-    public IObstacleProvider ObstacleProvider
-    {
-        get { return _obstacleProvider; }
-        private set { _obstacleProvider = value; }
+        SpriteProvider = (ISpriteProvider)providerList[ProviderType.Sprite];
+        ObstacleProvider = (IObstacleProvider)providerList[ProviderType.Obstacle];
+        ProgressProvider = (IProgressProvider)providerList[ProviderType.Progress];
+        GameInitialize(prefabs[PrefabType.WallController], ProgressProvider, prefabs[PrefabType.WallContainer], prefabs[PrefabType.BorderController]);
     }
 
-    public GameContext(GameObject wallControllerPrefab, GameObject wallContainerPrefab, GameObject borderControllerPrefab, IProgressHandler progressHandler, ISpriteProvider spriteProvider, IObstacleProvider obstacleProvider)
-    {
-        _spriteProvider = spriteProvider;
-        _obstacleProvider = obstacleProvider;
-        _progressHandler = progressHandler;
-        GameInitialize(wallControllerPrefab,progressHandler, wallContainerPrefab, borderControllerPrefab);
-    }
-
-    private void GameInitialize(GameObject wallControllerPrefab,IProgressHandler progressHandler, GameObject wallContainerPrefab, GameObject borderControllerPrefab)
+    private void GameInitialize(GameObject wallControllerPrefab,IProgressProvider progressProvider, GameObject wallContainerPrefab, GameObject borderControllerPrefab)
     {
         var wallControllerObject = Instantiate(wallControllerPrefab);
         var borderControllerObject = Instantiate(borderControllerPrefab, Camera.main.transform);
@@ -40,7 +25,7 @@ public class GameContext : MonoBehaviour
 
         var wallController = wallControllerObject.AddComponent<WallController>();
         var borderController = borderControllerObject.AddComponent<BorderController>();
-        wallController.Initialize(wallContainerPrefab,progressHandler);
+        wallController.Initialize(wallContainerPrefab,progressProvider);
         borderController.Initialize(wallController);
     }
 }

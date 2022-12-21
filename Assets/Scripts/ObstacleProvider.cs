@@ -1,13 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleProvider : IObstacleProvider
+public class ObstacleProvider : IObstacleProvider, IProvider
 {
     private LevelData _currentLevel;
 
+    public Status Status { get; private set; }
+
     public ObstacleProvider(LevelData currentLevel)
     {
+        Status = Status.Starting;
         _currentLevel = currentLevel;
+        Status = Status.Running;
     }
 
     public List<int> ObstacleCreateDistance

@@ -7,18 +7,18 @@ public class WallController : MonoBehaviour
 {
     private GameObject _wallPrefab;
     private List<IWallTransformation> _wallTransformations;
-    private IProgressHandler _progressHandler;
+    private IProgressProvider _progressHandler;
 
     public event Action<WallEventHandler> OnWallCreated;
     public event Action<WallEventHandler> OnWallDestoryed;
 
-    public void Initialize(GameObject wallPrefab, IProgressHandler progressHandler)
+    public void Initialize(GameObject wallPrefab, IProgressProvider progressHandler)
     {
         _wallPrefab = wallPrefab;
         _progressHandler = progressHandler;
         this.gameObject.SetActive(true);
     }
-    private void CreatePlane(GameObject wallPrefab,List<IWallTransformation> wallTransformations,IProgressHandler progressHandler)
+    private void CreatePlane(GameObject wallPrefab,List<IWallTransformation> wallTransformations,IProgressProvider progressHandler)
     {
         var wallObject = Instantiate(wallPrefab, this.transform);
         var wall = wallObject.GetComponent<Wall>();
