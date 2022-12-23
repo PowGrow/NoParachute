@@ -18,7 +18,7 @@ public class MainMenuContext : MonoBehaviour, ISceneContext
     {
         var wallControllerObject = Instantiate(wallControllerPrefab);
         wallControllerObject.transform.rotation = Quaternion.Euler(0, 0, -25);
-        Time.timeScale = 0.25f;
+        Time.timeScale = 0.1f;
         wallControllerObject.SetActive(false);
         var wallController = wallControllerObject.AddComponent<WallController>();
         wallController.Initialize(wallContainerPrefab, null);
