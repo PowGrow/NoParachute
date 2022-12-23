@@ -1,17 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpriteProvider : ISpriteProvider, IProvider
+public class SpriteProvider : ISpriteProvider
 {
     private LevelData _currentLevel;
 
-    public Status Status { get; private set; }
-
     public SpriteProvider(LevelData currentLevel)
     {
-        Status = Status.Starting;
         _currentLevel = currentLevel;
-        Status = Status.Running;
     }
 
     public List<Sprite> Walls

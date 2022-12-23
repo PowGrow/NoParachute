@@ -7,18 +7,18 @@ public class WallController : MonoBehaviour
 {
     private GameObject _wallPrefab;
     private List<IWallTransformation> _wallTransformations;
-    private IProgressProvider _progressHandler;
+    private IProgressProvider _progressProvider;
 
-    public event Action<WallEventHandler> OnWallCreated;
-    public event Action<WallEventHandler> OnWallDestoryed;
+    public event Action<WallEventHandler> WallCreatedEvent;
+    public event Action<WallEventHandler> WallDestroyingEvent;
 
-    public void Initialize(GameObject wallPrefab, IProgressProvider progressHandler)
+    public void Initialize(GameObject wallPrefab, IProgressProvider progressProvider)
     {
         _wallPrefab = wallPrefab;
-        _progressHandler = progressHandler;
+        _progressProvider = progressProvider;
         this.gameObject.SetActive(true);
     }
-    private void CreatePlane(GameObject wallPrefab,List<IWallTransformation> wallTransformations,IProgressProvider progressHandler)
+    private void CreatePlane(GameObject wallPrefab,List<IWallTransformation> wallTransformations,IProgressProvider progressProvider)
     {
         var wallObject = Instantiate(wallPrefab, this.transform);
         var wall = wallObject.GetComponent<Wall>();
@@ -26,23 +26,24 @@ public class WallController : MonoBehaviour
         {
             wallTransformation.WallTransform(wall);
         }
-        progressHandler.OnProgress();
+        if(progressProvider != null)
+            progressProvider.OnProgress();
 
-        wall.EventHandler.SpawnNewPlaneEvent += SpawnNewPlaneEventHandler;
-        wall.EventHandler.DestroyPlaneEvent += DestroyPlaneEventHandler;
+        wall.EventHandler.CreateWallEvent += SpawnNewPlaneEventHandler;
+        wall.EventHandler.DestroyingWallEvent += DestroyPlaneEventHandler;
 
-        OnWallCreated?.Invoke(wall.EventHandler);
+        WallCreatedEvent?.Invoke(wall.EventHandler);
     }
 
     private void SpawnNewPlaneEventHandler()
     {
-        CreatePlane(_wallPrefab,_wallTransformations, _progressHandler);
+        CreatePlane(_wallPrefab,_wallTransformations, _progressProvider);
     }
     private void DestroyPlaneEventHandler(WallEventHandler wallEventHandler)
     {
-        OnWallDestoryed?.Invoke(wallEventHandler);
-        wallEventHandler.SpawnNewPlaneEvent -= SpawnNewPlaneEventHandler;
-        wallEventHandler.DestroyPlaneEvent -= DestroyPlaneEventHandler;
+        WallDestroyingEvent?.Invoke(wallEventHandler);
+        wallEventHandler.CreateWallEvent -= SpawnNewPlaneEventHandler;
+        wallEventHandler.DestroyingWallEvent -= DestroyPlaneEventHandler;
 
         Destroy(wallEventHandler.transform.parent.gameObject);
     }
@@ -54,6 +55,6 @@ public class WallController : MonoBehaviour
 
     private void Start()
     {
-        CreatePlane(_wallPrefab, _wallTransformations, _progressHandler);
+        CreatePlane(_wallPrefab, _wallTransformations, _progressProvider);
     }
 }

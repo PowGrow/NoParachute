@@ -1,0 +1,117 @@
+{
+    "name": "MenuInputController",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "93fdc407-eabf-402b-aa91-e02142d35415",
+            "actions": [
+                {
+                    "name": "AnyKeyPressed",
+                    "type": "Button",
+                    "id": "026026c3-482c-4b70-959b-11fc44710f4d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "233697ca-3f85-4a56-8e83-2234b9f33e33",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyborad & Mouse",
+                    "action": "AnyKeyPressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "703f38f2-93ef-41db-a8d1-84ba95f0978b",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyKeyPressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b635c93-fcd7-4224-9112-71434fd7049b",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyKeyPressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5e007d2d-d909-46ba-b599-662fdedc8321",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyKeyPressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa9a911f-83fd-40f7-ba9e-2b08660943ba",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyKeyPressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c34dbd7f-aaac-4d4a-90c3-60af0ebce717",
+                    "path": "<Mouse>/backButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyKeyPressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dfef7367-5f55-468d-8526-9cedb69e0335",
+                    "path": "<Mouse>/forwardButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyKeyPressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keyborad & Mouse",
+            "bindingGroup": "Keyborad & Mouse",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

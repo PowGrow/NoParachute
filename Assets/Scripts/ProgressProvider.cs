@@ -1,12 +1,18 @@
-public class ProgressProvider : IProgressProvider, IProvider
+using System;
+using System.Linq;
+
+public class ProgressProvider : IProgressProvider
 {
+    private int _currentLevelId;
     private int _levelProgress;
     private int _previousObstacleDelta;
     private int _startObstacleDelay;
     private int _obstacleToCreateIndex;
+    private int _levelLength;
 
-    public Status Status { get; private set; }
+    private event Action<int> LevelCompleteEvent;
 
+    private const int LEVEL_COMPLETE_DELAY = 20;
     public int LevelProgress
     {
         get { return _levelProgress; }
@@ -24,20 +30,29 @@ public class ProgressProvider : IProgressProvider, IProvider
 
     public ProgressProvider(LevelData currentLevel)
     {
-        Status = Status.Starting;
+        _currentLevelId = currentLevel.LevelId;
         _startObstacleDelay = currentLevel.StartObstacleDelay;
-        Status = Status.Running;
+        _levelLength = currentLevel.ObstacleCreateDistance.Sum() + LEVEL_COMPLETE_DELAY;
+    }
+
+    private bool IsGameScene()
+    {
+        return _levelLength > 0;
     }
 
     public void OnProgress()
     {
-        if (_startObstacleDelay > 0)
-            _startObstacleDelay--;
-        else
+        if(IsGameScene())
         {
-            _levelProgress++;
-            _previousObstacleDelta++;
+            if (_startObstacleDelay > 0)
+                _startObstacleDelay--;
+            else if (_levelProgress < _levelLength)
+            {
+                _levelProgress++;
+                _previousObstacleDelta++;
+            }
+            if (_levelProgress >= _levelLength)
+                LevelCompleteEvent?.Invoke(_currentLevelId);
         }
-
     }
 }

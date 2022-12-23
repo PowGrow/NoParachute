@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fc30b32eb6a8e4789109a7ae2866c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventHandler: {fileID: 4931876665611455655}
+  _eventHandler: {fileID: 6170277691255368628}
   _spriteRenderer: {fileID: 4162241424892867735}
   _decorativesSpriteRenderer: {fileID: 1960839937529796808}
   _transform: {fileID: 7385124674988694343}
@@ -116,9 +116,9 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4327448203559132087, guid: 9553eca7f2c76974f990715c7f15e82a, type: 3}
   m_PrefabInstance: {fileID: 418113144757219104}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4931876665611455655 stripped
+--- !u!114 &6170277691255368628 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4736911609168126855, guid: 9553eca7f2c76974f990715c7f15e82a, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5795100755713574036, guid: 9553eca7f2c76974f990715c7f15e82a, type: 3}
   m_PrefabInstance: {fileID: 418113144757219104}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

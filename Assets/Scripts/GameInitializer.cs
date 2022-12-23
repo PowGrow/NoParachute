@@ -9,7 +9,7 @@ public class GameInitializer : MonoBehaviour
 
     private void StartGame()
     {
-        ProjectContext.Instance.Initialize(ProjectContext.Instance.LevelId);
+        ProjectContext.Instance.Initialize(ProjectContext.Instance.LevelId, SceneType.Game);
         Destroy(gameObject);
     }
 }

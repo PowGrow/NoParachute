@@ -28,11 +28,11 @@ public class BorderController : MonoBehaviour
 
     private void OnEnable()
     {
-        _wallController.OnWallCreated += SubscribeOnWallEvents;
+        _wallController.WallCreatedEvent += SubscribeOnWallEvents;
     }
 
     private void OnDisable()
     {
-        _wallController.OnWallDestoryed -= UnsubscribeFromWallEvents;
+        _wallController.WallDestroyingEvent -= UnsubscribeFromWallEvents;
     }
 }

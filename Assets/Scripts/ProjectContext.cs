@@ -4,32 +4,42 @@ using UnityEngine;
 
 public class ProjectContext : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _prefabs;
+    [SerializeField] private List<GameObject> _prefabs; //Cписок игровых объектов необходимых для запуска уровня
     [SerializeField] private List<PrefabType> _prefabTypes;
-    [SerializeField] private int _startObstacleDelay;
 
     public int LevelId { get; set; }
-    public GameContext GameContext { get; private set; }
+    public ISceneContext SceneContext { get; private set; }
     public static ProjectContext Instance { get; private set; }
 
-    public void Initialize(int levelId)
+    public void Initialize(int levelId, SceneType scene)
     {
         var currentLevel = Resources.Load<LevelData>($"ScriptableObjects/Levels/Level_{levelId}");
-        var providerList = InstantiateProviders(currentLevel);
         var prefabs = GetPrefabDictionary(_prefabs, _prefabTypes);
-        GameContext = new GameContext(prefabs, providerList);
-    }
-    private Dictionary<ProviderType,IProvider> InstantiateProviders(LevelData currentLevel)
-    {
-        var providers = new Dictionary<ProviderType, IProvider>
+        switch (scene)
         {
-            { ProviderType.Sprite, new SpriteProvider(currentLevel) },
-            { ProviderType.Obstacle, new ObstacleProvider(currentLevel) },
-            { ProviderType.Progress, new ProgressProvider(currentLevel) }
-        };
-        return providers;
-        
+            case (SceneType.MainMenu):
+                MainMenuInitialize(currentLevel, prefabs);
+                break;
+            case (SceneType.Game):
+                GameInitialize(currentLevel, prefabs);
+                break;
+        }
     }
+
+    private void GameInitialize(LevelData currentLevel, Dictionary<PrefabType, GameObject> prefabs)
+    {
+        var spriteProvider = new SpriteProvider(currentLevel);
+        var obstacleProvider = new ObstacleProvider(currentLevel);
+        var progressProvider = new ProgressProvider(currentLevel);
+        SceneContext = new GameContext(prefabs, spriteProvider, obstacleProvider, progressProvider);
+    }
+
+    private void MainMenuInitialize(LevelData currentLevel, Dictionary<PrefabType, GameObject> prefabs)
+    {
+        var spriteProvider = new SpriteProvider(currentLevel);
+        SceneContext = new MainMenuContext(prefabs, spriteProvider);
+    }
+
     private Dictionary<PrefabType, GameObject> GetPrefabDictionary(List<GameObject> prefabs, List<PrefabType> prefabTypes)
     {
         var dictionary = new Dictionary<PrefabType, GameObject>();

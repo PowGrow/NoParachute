@@ -11,7 +11,8 @@ public class SpriteSelector : MonoBehaviour
     public void SelectSpriteFromPool(Wall wall, ISpriteProvider spriteProvider)
     {
         wall.SpriteRenderer.sprite = GetRandomWallSprite(spriteProvider.Walls, spriteProvider.WallsSpawnChance);
-        wall.DecorativesSpriteRenderer.sprite = GetRandomDecoratives(spriteProvider.Decoratives, _decorativesSpawnChance);
+        if(spriteProvider.Decoratives.Count() > 0)
+            wall.DecorativesSpriteRenderer.sprite = GetRandomDecoratives(spriteProvider.Decoratives, _decorativesSpawnChance);
     }
 
     private Sprite GetRandomWallSprite(List<Sprite> wallsSpriteList, List<int> wallsSpawnChanceList)
@@ -41,7 +42,7 @@ public class SpriteSelector : MonoBehaviour
 
     private void Awake()
     {
-        _spriteProvider = ProjectContext.Instance.GameContext.SpriteProvider;
+        _spriteProvider = ProjectContext.Instance.SceneContext.SpriteProvider;
         var wall = GetComponentInParent<Wall>();
         SelectSpriteFromPool(wall,_spriteProvider);
     }

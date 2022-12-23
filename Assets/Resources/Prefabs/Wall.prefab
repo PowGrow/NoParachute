@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7183334258948224103}
   - component: {fileID: 4327448203559132087}
   - component: {fileID: 740380083876384646}
-  - component: {fileID: 4736911609168126855}
   - component: {fileID: -6229371750227427030}
   - component: {fileID: 5154164826904706384}
+  - component: {fileID: 5795100755713574036}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -109,18 +109,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4736911609168126855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7252811296323004855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1186a2aaf0c88c04f87be02242d15723, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-6229371750227427030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,8 +134,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ef5ef83f2c16b4096b0a51f259d876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chanceToCreateObstacle: 5
-  _obstacleCreationDelay: 10
+--- !u!114 &5795100755713574036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7252811296323004855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1186a2aaf0c88c04f87be02242d15723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8022401513235630083
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,22 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameContext : MonoBehaviour
+public class GameContext : MonoBehaviour, ISceneContext
 {
     public ISpriteProvider SpriteProvider { get; private set; }
-    public IProgressProvider ProgressProvider { get; private set; }
     public IObstacleProvider ObstacleProvider { get; private set; }
+    public IProgressProvider ProgressProvider { get; private set; }
 
-    public GameContext(Dictionary<PrefabType,GameObject> prefabs, Dictionary<ProviderType,IProvider> providerList)
+    public GameContext(Dictionary<PrefabType,GameObject> prefabs, ISpriteProvider spriteProvider, IObstacleProvider obstacleProvider, IProgressProvider progressProvider)
     {
-        SpriteProvider = (ISpriteProvider)providerList[ProviderType.Sprite];
-        ObstacleProvider = (IObstacleProvider)providerList[ProviderType.Obstacle];
-        ProgressProvider = (IProgressProvider)providerList[ProviderType.Progress];
+        SpriteProvider = spriteProvider;
+        ObstacleProvider = obstacleProvider;
+        ProgressProvider = progressProvider;
         GameInitialize(prefabs[PrefabType.WallController], ProgressProvider, prefabs[PrefabType.WallContainer], prefabs[PrefabType.BorderController]);
     }
 
+
+    //Инициализируем игровые объекты на сцене
     private void GameInitialize(GameObject wallControllerPrefab,IProgressProvider progressProvider, GameObject wallContainerPrefab, GameObject borderControllerPrefab)
     {
+        Time.timeScale = 1;
         var wallControllerObject = Instantiate(wallControllerPrefab);
         var borderControllerObject = Instantiate(borderControllerPrefab, Camera.main.transform);
 

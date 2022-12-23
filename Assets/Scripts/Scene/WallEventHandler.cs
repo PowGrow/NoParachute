@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class WallEventHandler : MonoBehaviour
 {
-    public event Action SpawnNewPlaneEvent;
-    public event Action<WallEventHandler> DestroyPlaneEvent;
+    public event Action CreateWallEvent;
+    public event Action<WallEventHandler> DestroyingWallEvent;
     public event Action<Quaternion,Vector3> RefreshBorderEvent;
     public event Action LevelProgressEvent;
 
@@ -13,13 +13,13 @@ public class WallEventHandler : MonoBehaviour
         LevelProgressEvent?.Invoke();
         RefreshBorderEvent?.Invoke(this.transform.rotation, this.transform.position);
     }
-    public void NextPlaneSpawnPositionReached()
+    public void WallCreatePositionReached()
     {
-        SpawnNewPlaneEvent?.Invoke();
+        CreateWallEvent?.Invoke();
     }
 
-    public void PlaneDestoryPositionReached()
+    public void WallDestroyPositionReached()
     {
-        DestroyPlaneEvent?.Invoke(this);
+        DestroyingWallEvent?.Invoke(this);
     }
 }
