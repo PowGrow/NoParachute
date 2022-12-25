@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,8 @@ public class MainMenuInputHandler : MonoBehaviour
     [SerializeField] private GameObject _levelsContainer;
     private MenuInputController _menuInputController;
 
+    public event Action RefreshLevelUiEvent;
+
 
     private void HideIntroSplash(InputAction uiAction, TransitionAnimationController transitionController, GameObject objectToHide)
     {
@@ -19,6 +22,7 @@ public class MainMenuInputHandler : MonoBehaviour
 
     public void OnPlayStoryButtonClick()
     {
+        GameData.SelectedLevelId = GameData.LastSelectedLevelId;
         SubscribeAndShowTransition(_transitionController, _buttonsContainer, _levelsContainer);
     }
     public void OnNextLevelButtonClick()
@@ -33,6 +37,7 @@ public class MainMenuInputHandler : MonoBehaviour
     }
     public void OnBackButtonClick()
     {
+        GameData.LastSelectedLevelId = GameData.SelectedLevelId;
         GameData.SelectedLevelId = 100;
         SubscribeAndShowTransition(_transitionController, _levelsContainer, _buttonsContainer);
     }
@@ -50,6 +55,7 @@ public class MainMenuInputHandler : MonoBehaviour
     {
         _cameraAnimator.PlayStartAnimation();
         ProjectContext.Instance.Initialize(GameData.SelectedLevelId, SceneType.MainMenu);
+        RefreshLevelUiEvent?.Invoke();
         _transitionController.ScreenIsBlack -= OnScreenIsBlackEventHandler;
     }
 

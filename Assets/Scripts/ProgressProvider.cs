@@ -14,6 +14,8 @@ public class ProgressProvider : IProgressProvider
 
     private const int LEVEL_COMPLETE_DELAY = 20;
 
+    public int LevelId { get; private set; }
+    public string LevelName { get; private set; }
     public LevelData NextLevel { get; private set; }
     public LevelData PreviousLevel { get; private set; }
 
@@ -34,6 +36,8 @@ public class ProgressProvider : IProgressProvider
 
     public ProgressProvider(LevelData currentLevel)
     {
+        LevelId = currentLevel.LevelId;
+        LevelName = currentLevel.LevelName;
         NextLevel = currentLevel.NextLevel;
         PreviousLevel = currentLevel.PreviousLevel;
         _currentLevelId = currentLevel.LevelId;

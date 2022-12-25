@@ -4,15 +4,15 @@ using UnityEngine;
 
 public static class SaveLoader
 {
-    private static string _filePath = Path.Combine(Application.persistentDataPath, "save.dat");
+    private static readonly string _filePath = Path.Combine(Application.persistentDataPath, "save.dat");
     public static GameData TryToLoadData()
     {
         return ReadSaveDataFromFile<GameData>(_filePath);
     }
 
-    public static void SaveData()
+    public static void SaveData(GameData data)
     {
-
+        WriteSaveDataToFile<GameData>(_filePath, data);
     }
 
     private static T ReadSaveDataFromFile<T>(string filePath)

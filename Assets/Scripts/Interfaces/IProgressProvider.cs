@@ -1,5 +1,7 @@
 public interface IProgressProvider
 {
+    public int LevelId { get;}
+    public string LevelName { get;}
     public LevelData NextLevel { get; }
     public LevelData PreviousLevel { get; }
     public int PreviousObstacleDelta { get; set; }

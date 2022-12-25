@@ -70,7 +70,7 @@ public class ProjectContext : MonoBehaviour
         }
         catch(FileNotFoundException e)
         {
-            GameData = new GameData(0, 0);
+            GameData = new GameData(0, 0, 0);
         }
         DontDestroyOnLoad(this);
     }
