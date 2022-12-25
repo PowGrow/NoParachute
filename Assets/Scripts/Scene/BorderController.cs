@@ -33,6 +33,6 @@ public class BorderController : MonoBehaviour
 
     private void OnDisable()
     {
-        _wallController.WallDestroyingEvent -= UnsubscribeFromWallEvents;
+        _wallController.WallCreatedEvent += UnsubscribeFromWallEvents;
     }
 }

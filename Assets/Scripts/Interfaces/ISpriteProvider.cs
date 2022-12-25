@@ -3,7 +3,8 @@ using UnityEngine;
 
 public interface ISpriteProvider
 {
-    List<Sprite> Decoratives { get; }
-    List<Sprite> Walls { get; }
-    List<int> WallsSpawnChance { get; }
+    public Color BottomColor { get; }
+    public List<Sprite> Decoratives { get; }
+    public List<Sprite> Walls { get; }
+    public List<int> WallsSpawnChance { get; }
 }

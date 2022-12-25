@@ -28,7 +28,7 @@ public class ObstacleSelector : MonoBehaviour
 
     private void Awake()
     {
-        if (_progressProvider != null && _obstacleProvider != null)
+        if (ProjectContext.Instance.SceneContext.SceneType == SceneType.Game)
         {
             var sceneContext = ProjectContext.Instance.SceneContext;
             _obstacleProvider = sceneContext.ObstacleProvider;

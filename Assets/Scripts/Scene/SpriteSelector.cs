@@ -8,10 +8,11 @@ public class SpriteSelector : MonoBehaviour
 
     private ISpriteProvider _spriteProvider;
 
+
     public void SelectSpriteFromPool(Wall wall, ISpriteProvider spriteProvider)
     {
         wall.SpriteRenderer.sprite = GetRandomWallSprite(spriteProvider.Walls, spriteProvider.WallsSpawnChance);
-        if(spriteProvider.Decoratives.Count() > 0)
+        if(ProjectContext.Instance.SceneContext.SceneType == SceneType.Game)
             wall.DecorativesSpriteRenderer.sprite = GetRandomDecoratives(spriteProvider.Decoratives, _decorativesSpawnChance);
     }
 

@@ -5,18 +5,52 @@ public class MainMenuInputHandler : MonoBehaviour
 {
     [SerializeField] private GameObject _splashScreenObject;
     [SerializeField] private TransitionAnimationController _transitionController;
+    [SerializeField] private CameraAnimator _cameraAnimator;
+    [SerializeField] private GameObject _buttonsContainer;
+    [SerializeField] private GameObject _levelsContainer;
     private MenuInputController _menuInputController;
 
 
-    private void HideIntroSplash(InputAction uiAction, TransitionAnimationController controller, GameObject objectToHide)
+    private void HideIntroSplash(InputAction uiAction, TransitionAnimationController transitionController, GameObject objectToHide)
     {
         uiAction.Disable();
-        controller.ShowTransition(objectToHide);
+        transitionController.ShowTransition(objectToHide,null);
     }
 
-    private void OnExitButtonClick()
+    public void OnPlayStoryButtonClick()
+    {
+        SubscribeAndShowTransition(_transitionController, _buttonsContainer, _levelsContainer);
+    }
+    public void OnNextLevelButtonClick()
+    {
+        GameData.SelectedLevelId = ProjectContext.Instance.SceneContext.ProgressProvider.NextLevel.LevelId;
+        SubscribeAndShowTransition(_transitionController, null, null);
+    }
+    public void OnPreviousButtonClick()
+    {
+        GameData.SelectedLevelId = ProjectContext.Instance.SceneContext.ProgressProvider.PreviousLevel.LevelId;
+        SubscribeAndShowTransition(_transitionController, null, _levelsContainer) ;
+    }
+    public void OnBackButtonClick()
+    {
+        GameData.SelectedLevelId = 100;
+        SubscribeAndShowTransition(_transitionController, _levelsContainer, _buttonsContainer);
+    }
+    public void OnExitButtonClick()
     {
         Application.Quit();
+    }
+    private void SubscribeAndShowTransition(TransitionAnimationController transitionController, GameObject objectToHide, GameObject objectToShow)
+    {
+        transitionController.ScreenIsBlack += OnScreenIsBlackEventHandler;
+        transitionController.ShowTransition(objectToHide, objectToShow);
+    }
+
+    private void OnScreenIsBlackEventHandler()
+    {
+        _cameraAnimator.PlayStartAnimation();
+        ProjectContext.Instance.Initialize(GameData.SelectedLevelId, SceneType.MainMenu);
+        _transitionController.ScreenIsBlack -= OnScreenIsBlackEventHandler;
     }
 
     private void Awake()

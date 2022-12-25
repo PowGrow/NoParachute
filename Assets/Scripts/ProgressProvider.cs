@@ -13,6 +13,10 @@ public class ProgressProvider : IProgressProvider
     private event Action<int> LevelCompleteEvent;
 
     private const int LEVEL_COMPLETE_DELAY = 20;
+
+    public LevelData NextLevel { get; private set; }
+    public LevelData PreviousLevel { get; private set; }
+
     public int LevelProgress
     {
         get { return _levelProgress; }
@@ -30,6 +34,8 @@ public class ProgressProvider : IProgressProvider
 
     public ProgressProvider(LevelData currentLevel)
     {
+        NextLevel = currentLevel.NextLevel;
+        PreviousLevel = currentLevel.PreviousLevel;
         _currentLevelId = currentLevel.LevelId;
         _startObstacleDelay = currentLevel.StartObstacleDelay;
         _levelLength = currentLevel.ObstacleCreateDistance.Sum() + LEVEL_COMPLETE_DELAY;
@@ -37,7 +43,7 @@ public class ProgressProvider : IProgressProvider
 
     private bool IsGameScene()
     {
-        return _levelLength > 0;
+        return ProjectContext.Instance.SceneContext.SceneType == SceneType.Game;
     }
 
     public void OnProgress()
@@ -54,5 +60,20 @@ public class ProgressProvider : IProgressProvider
             if (_levelProgress >= _levelLength)
                 LevelCompleteEvent?.Invoke(_currentLevelId);
         }
+    }
+
+    private void WallCreatedEventHandler(WallEventHandler wallEventHandler)
+    {
+        OnProgress();
+    }
+
+    public void SubscribingOnWallCreatingEvents(WallController wallController)
+    {
+        wallController.WallCreatedEvent += WallCreatedEventHandler;
+    }
+
+    public void UnsubscribingFromWallCreatingEvents(WallController wallController)
+    {
+        wallController.WallCreatedEvent -= WallCreatedEventHandler;
     }
 }

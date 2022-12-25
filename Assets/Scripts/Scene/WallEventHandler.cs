@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class WallEventHandler : MonoBehaviour
 {
-    public event Action CreateWallEvent;
+    public event Action CreatingWallEvent;
     public event Action<WallEventHandler> DestroyingWallEvent;
     public event Action<Quaternion,Vector3> RefreshBorderEvent;
     public event Action LevelProgressEvent;
@@ -15,7 +15,7 @@ public class WallEventHandler : MonoBehaviour
     }
     public void WallCreatePositionReached()
     {
-        CreateWallEvent?.Invoke();
+        CreatingWallEvent?.Invoke();
     }
 
     public void WallDestroyPositionReached()

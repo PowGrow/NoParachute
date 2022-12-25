@@ -10,6 +10,11 @@ public class SpriteProvider : ISpriteProvider
         _currentLevel = currentLevel;
     }
 
+    public Color BottomColor
+    {
+        get { return _currentLevel.BottomColor;}
+    }
+
     public List<Sprite> Walls
     {
         get { return _currentLevel.Walls; }
