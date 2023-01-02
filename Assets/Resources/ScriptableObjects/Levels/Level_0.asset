@@ -20,15 +20,84 @@ MonoBehaviour:
   RotationMode: 0
   RotationSpeed: 0
   StartObstacleDelay: 0
-  BottomColor: {r: 0.028034888, g: 0.2244415, b: 0.2830189, a: 1}
-  Walls:
-  - {fileID: 21300000, guid: 7d12d16bea604d0448b1f54fded0f52d, type: 3}
-  - {fileID: 21300000, guid: d18d9caf4495e0d4fa56c9c5d9c57e78, type: 3}
-  - {fileID: 21300000, guid: 8c341fa0c180287438c7a83055f43fae, type: 3}
-  - {fileID: 21300000, guid: 1e9be9118810f1f4d95396716dc23476, type: 3}
+  BottomColor: {r: 0.3882353, g: 0.6313726, b: 0.75686276, a: 1}
+  BackgroundColor: {r: 0.48627454, g: 0.8352942, b: 1, a: 1}
+  Walls: []
   Decoratives: []
-  WallsSpawnChance: 3c0000003c0000002800000028000000
+  WallsSpawnChance: 
   Obstacles: []
-  ObstacleCreateDistance: 
-  ObstacleToCreate: []
-  ObstacleCreateRotation: []
+  ObstacleCreateDistance: 040000000400000004000000040000000400000004000000040000000400000004000000040000000400000004000000040000000400000004000000040000000400000004000000040000000400000004000000040000000400000004000000040000000400000004000000040000000400000004000000040000000100000001000000010000000100000001000000
+  ObstacleToCreate:
+  - {fileID: 6558846527805446379, guid: 081ae0b322b4ab340bbfda8fabd45d5a, type: 3}
+  - {fileID: 7142481967496232913, guid: 47e6a05d56d350546a59081973754198, type: 3}
+  - {fileID: 4927582127704641770, guid: 86f078e67fe14b847b505c39d6cdd0cc, type: 3}
+  - {fileID: 2757720200722823594, guid: d45cbecf2093e0c45b6eca4e1504efab, type: 3}
+  - {fileID: 4009007561139681865, guid: 2958adaaaaaba804e9a9d9665f602e3a, type: 3}
+  - {fileID: 5491948286356735136, guid: 2e51315d94f10494e99988a33414c21e, type: 3}
+  - {fileID: 2028727308349381116, guid: 0dbc441fa2105fc428026f6fa904706c, type: 3}
+  - {fileID: 7639335311381124562, guid: a4486bf7857a2d245bd91b5d61f165d2, type: 3}
+  - {fileID: 6558846527805446379, guid: 081ae0b322b4ab340bbfda8fabd45d5a, type: 3}
+  - {fileID: 7142481967496232913, guid: 47e6a05d56d350546a59081973754198, type: 3}
+  - {fileID: 4927582127704641770, guid: 86f078e67fe14b847b505c39d6cdd0cc, type: 3}
+  - {fileID: 2757720200722823594, guid: d45cbecf2093e0c45b6eca4e1504efab, type: 3}
+  - {fileID: 4009007561139681865, guid: 2958adaaaaaba804e9a9d9665f602e3a, type: 3}
+  - {fileID: 5491948286356735136, guid: 2e51315d94f10494e99988a33414c21e, type: 3}
+  - {fileID: 2028727308349381116, guid: 0dbc441fa2105fc428026f6fa904706c, type: 3}
+  - {fileID: 7639335311381124562, guid: a4486bf7857a2d245bd91b5d61f165d2, type: 3}
+  - {fileID: 6558846527805446379, guid: 081ae0b322b4ab340bbfda8fabd45d5a, type: 3}
+  - {fileID: 7142481967496232913, guid: 47e6a05d56d350546a59081973754198, type: 3}
+  - {fileID: 4927582127704641770, guid: 86f078e67fe14b847b505c39d6cdd0cc, type: 3}
+  - {fileID: 2757720200722823594, guid: d45cbecf2093e0c45b6eca4e1504efab, type: 3}
+  - {fileID: 4009007561139681865, guid: 2958adaaaaaba804e9a9d9665f602e3a, type: 3}
+  - {fileID: 5491948286356735136, guid: 2e51315d94f10494e99988a33414c21e, type: 3}
+  - {fileID: 2028727308349381116, guid: 0dbc441fa2105fc428026f6fa904706c, type: 3}
+  - {fileID: 7639335311381124562, guid: a4486bf7857a2d245bd91b5d61f165d2, type: 3}
+  - {fileID: 6558846527805446379, guid: 081ae0b322b4ab340bbfda8fabd45d5a, type: 3}
+  - {fileID: 7142481967496232913, guid: 47e6a05d56d350546a59081973754198, type: 3}
+  - {fileID: 4927582127704641770, guid: 86f078e67fe14b847b505c39d6cdd0cc, type: 3}
+  - {fileID: 2757720200722823594, guid: d45cbecf2093e0c45b6eca4e1504efab, type: 3}
+  - {fileID: 4009007561139681865, guid: 2958adaaaaaba804e9a9d9665f602e3a, type: 3}
+  - {fileID: 5491948286356735136, guid: 2e51315d94f10494e99988a33414c21e, type: 3}
+  - {fileID: 2028727308349381116, guid: 0dbc441fa2105fc428026f6fa904706c, type: 3}
+  - {fileID: 924329024154112441, guid: b1796c7e5702ac94f8bc9b6a62e26cfb, type: 3}
+  - {fileID: 1145219121168372030, guid: 1dd4fd2ae82852244bce6167238eb47c, type: 3}
+  - {fileID: 7579463735904998157, guid: 873941a460f3c8849a28c6b6c0607e97, type: 3}
+  - {fileID: 4808686101240494785, guid: b62b3b5605e4cbe4b99138b46f87eacf, type: 3}
+  - {fileID: 5765656628766572817, guid: 0f7bbd2deb9b54b42b34863bec447861, type: 3}
+  ObstacleCreateRotation:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0

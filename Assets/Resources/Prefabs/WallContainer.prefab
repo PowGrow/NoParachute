@@ -49,6 +49,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 4162241424892867735}
   _decorativesSpriteRenderer: {fileID: 1960839937529796808}
   _transform: {fileID: 7385124674988694343}
+  _animator: {fileID: 1120046604734505126}
 --- !u!1001 &418113144757219104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56,6 +57,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7690014146503552325}
     m_Modifications:
+    - target: {fileID: 5795100755713574036, guid: 9553eca7f2c76974f990715c7f15e82a, type: 3}
+      propertyPath: _wall
+      value: 
+      objectReference: {fileID: 3278376900110146944}
     - target: {fileID: 7183334258948224103, guid: 9553eca7f2c76974f990715c7f15e82a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -106,6 +111,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9553eca7f2c76974f990715c7f15e82a, type: 3}
+--- !u!95 &1120046604734505126 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 740380083876384646, guid: 9553eca7f2c76974f990715c7f15e82a, type: 3}
+  m_PrefabInstance: {fileID: 418113144757219104}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &1960839937529796808 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2232415665764972520, guid: 9553eca7f2c76974f990715c7f15e82a, type: 3}

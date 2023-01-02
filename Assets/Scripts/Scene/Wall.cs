@@ -6,6 +6,7 @@ public class Wall : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private SpriteRenderer _decorativesSpriteRenderer;
     [SerializeField] private Transform _transform;
+    [SerializeField] private Animator _animator;
 
     public WallEventHandler EventHandler
     {
@@ -25,5 +26,10 @@ public class Wall : MonoBehaviour
     public Transform Transform
     {
         get { return _transform;}
+    }
+
+    public Animator Animator
+    {
+        get { return _animator;}
     }
 }

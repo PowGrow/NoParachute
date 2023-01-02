@@ -1,0 +1,51 @@
+{
+    "name": "GameInputController",
+    "maps": [
+        {
+            "name": "Game",
+            "id": "3e151296-a685-48ac-9b46-b14d20707bc5",
+            "actions": [
+                {
+                    "name": "SpeedUp",
+                    "type": "Button",
+                    "id": "056936ae-14d8-4281-9247-881236a5207d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9c41297b-0553-4f3e-9549-6d0159b4f08b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "SpeedUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keyboard & Mouse",
+            "bindingGroup": "Keyboard & Mouse",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

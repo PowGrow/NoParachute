@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class WallEventHandler : MonoBehaviour
 {
+    [SerializeField] private Wall _wall;
     public event Action CreatingWallEvent;
-    public event Action<WallEventHandler> DestroyingWallEvent;
+    public event Action<Wall> DestroyingWallEvent;
     public event Action<Quaternion,Vector3> RefreshBorderEvent;
     public event Action LevelProgressEvent;
 
@@ -20,6 +21,6 @@ public class WallEventHandler : MonoBehaviour
 
     public void WallDestroyPositionReached()
     {
-        DestroyingWallEvent?.Invoke(this);
+        DestroyingWallEvent?.Invoke(_wall);
     }
 }

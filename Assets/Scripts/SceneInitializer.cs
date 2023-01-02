@@ -6,7 +6,7 @@ public class SceneInitializer : MonoBehaviour
 
     private void Start()
     {
-        ProjectContext.Instance.Initialize(_levelId, SceneType.MainMenu);
+        ProjectContext.Instance.LoadLevelData(_levelId, SceneType.MainMenu);
         Destroy(gameObject);
     }
 }

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GameInitializer : MonoBehaviour
 {
+    [SerializeField] private GameUI _gameUI;
+    [SerializeField] private TimeCounter _timeCounter;
     private void Awake()
     {
         StartGame();
@@ -9,7 +11,10 @@ public class GameInitializer : MonoBehaviour
 
     private void StartGame()
     {
-        ProjectContext.Instance.Initialize(ProjectContext.Instance.LevelId, SceneType.Game);
+        ProjectContext.Instance.LoadLevelData(ProjectContext.Instance.LevelId, SceneType.Game);
+        var progressProvider = ProjectContext.Instance.SceneContext.ProgressProvider;
+        _gameUI.Initialize(progressProvider);
+        _timeCounter.Initialize(progressProvider);
         Destroy(gameObject);
     }
 }

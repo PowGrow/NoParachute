@@ -18,25 +18,31 @@ public class SpriteSelector : MonoBehaviour
 
     private Sprite GetRandomWallSprite(List<Sprite> wallsSpriteList, List<int> wallsSpawnChanceList)
     {
-        var summChance = wallsSpawnChanceList.Sum();
-        var randomValue = Random.Range(1,summChance + 1);
-        var counter = 0;
-        for(int i=0; i < wallsSpawnChanceList.Count(); i++)
+        if(wallsSpriteList.Count() > 0)
         {
-            counter += wallsSpawnChanceList[i];
-            if (randomValue <= counter)
-                return wallsSpriteList[i];
+            var summChance = wallsSpawnChanceList.Sum();
+            var randomValue = Random.Range(1, summChance + 1);
+            var counter = 0;
+            for (int i = 0; i < wallsSpawnChanceList.Count(); i++)
+            {
+                counter += wallsSpawnChanceList[i];
+                if (randomValue <= counter)
+                    return wallsSpriteList[i];
+            }
+            Debug.LogError("WallsSpawnChanceList not full");
         }
-        Debug.LogError("WallsSpawnChanceList not full");
         return null;
     }
 
     private Sprite GetRandomDecoratives(List<Sprite> decorativesSritelist,int spawnChance)
     {
-        if(Random.Range(1,101) <= spawnChance)
+        if(decorativesSritelist.Count() > 0)
         {
-            var randomDecorativesId = Random.Range(0, decorativesSritelist.Count());
-            return decorativesSritelist[randomDecorativesId];
+            if (Random.Range(1, 101) <= spawnChance)
+            {
+                var randomDecorativesId = Random.Range(0, decorativesSritelist.Count());
+                return decorativesSritelist[randomDecorativesId];
+            }
         }
         return null;
     }

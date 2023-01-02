@@ -6,4 +6,5 @@ public interface IObstacleProvider
     public List<int> ObstacleCreateDistance { get; }
     public List<GameObject> ObstacleToCreate { get; }
     public List<float> ObstacleCreateRotation { get; }
+    public void SwitchObstacleData(LevelData levelToSwitch);
 }
