@@ -10,6 +10,9 @@ public class Movement : MonoBehaviour
     [SerializeField] private float xMinBorder=-0.6f;
     [SerializeField] private float yMaxBorder=0.5f;
     [SerializeField] private float yMinBorder=-0.5f;
+    [SerializeField] private Animator _animator;
+    private float speed = 5f;
+    public static Movement Instance;
     public event Action<WallSpeed> SpeedChangeEvent;
 
     private void ChangeFallSpeed(WallSpeed speed)
@@ -18,10 +21,17 @@ public class Movement : MonoBehaviour
         SpeedChangeEvent?.Invoke(speed);
     }
 
+    public void DecreseSpeed()
+    {
+        speed = speed - 1f;
+    }
+
     private void Move()
     {
         Vector2 direction = _movementController.Player.Movement.ReadValue<Vector2>();
-        rb.AddForce(direction*5f);
+        _animator.SetFloat("Y",direction.y);
+        _animator.SetFloat("X",direction.x);
+        rb.AddForce(direction*speed);
         if (rb.transform.position.x > xMaxBorder)
         {
             rb.Sleep();
@@ -47,6 +57,11 @@ public class Movement : MonoBehaviour
 
     }
 
+    private void Animation()
+    {
+        
+    }
+
     void Update()
     {
         Move();
@@ -54,6 +69,7 @@ public class Movement : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         _movementController = new MovementController();
         rb = GetComponent<Rigidbody2D>();
     }
