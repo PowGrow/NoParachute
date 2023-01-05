@@ -7,7 +7,10 @@ public class CollisionDetectorForTors : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Time.timeScale = 0;
-        
+        if (other.gameObject.tag != "Border")
+        {
+            Time.timeScale = 0;
+            other.transform.position = transform.position - new Vector3(0, 0, -0.3f);
+        }
     }
 }

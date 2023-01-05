@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 63d00d8709ca39c4096407746422fd95, type: 3}
+    - target: {fileID: 645124306084036616, guid: 295cabadfc8f2bc44a81c858b9388bde, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4099882
+      objectReference: {fileID: 0}
+    - target: {fileID: 645124306084036616, guid: 295cabadfc8f2bc44a81c858b9388bde, type: 3}
+      propertyPath: m_Center.z
+      value: -0.08800726
+      objectReference: {fileID: 0}
     - target: {fileID: 1953220665990357816, guid: 295cabadfc8f2bc44a81c858b9388bde, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -55,9 +63,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2313494089774677975, guid: 295cabadfc8f2bc44a81c858b9388bde, type: 3}
+      propertyPath: m_Size.z
+      value: 0.45785847
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313494089774677975, guid: 295cabadfc8f2bc44a81c858b9388bde, type: 3}
+      propertyPath: m_Center.z
+      value: -0.090556756
+      objectReference: {fileID: 0}
     - target: {fileID: 2823569703243352518, guid: 295cabadfc8f2bc44a81c858b9388bde, type: 3}
       propertyPath: m_Name
-      value: obstacle_plane3
+      value: Obstacle3_rails
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775925468639460518, guid: 295cabadfc8f2bc44a81c858b9388bde, type: 3}
+      propertyPath: m_Size.z
+      value: 0.5118677
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775925468639460518, guid: 295cabadfc8f2bc44a81c858b9388bde, type: 3}
+      propertyPath: m_Center.z
+      value: -0.098694086
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 295cabadfc8f2bc44a81c858b9388bde, type: 3}
