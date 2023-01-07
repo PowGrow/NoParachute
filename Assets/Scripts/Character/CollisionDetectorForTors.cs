@@ -5,12 +5,20 @@ using UnityEngine;
 
 public class CollisionDetectorForTors : MonoBehaviour
 {
+    private AudioSource _audioSource;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag != "Border")
         {
+            Movement.Instance.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, other.transform.position.z-0.2f);
+            _audioSource.Play();
             Time.timeScale = 0;
-            other.transform.position = transform.position - new Vector3(0, 0, -0.3f);
+            
         }
+    }
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
     }
 }

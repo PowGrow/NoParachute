@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
     private MovementController _movementController;
     private Rigidbody2D rb;
     [SerializeField] private Animator _animator;
-    private float speed = 4f;
+    private float speed = 3.5f;
     public static Movement Instance;
     public event Action<WallSpeed> SpeedChangeEvent;
 
@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
 
     public void DecreseSpeed()
     {
-        speed = speed - 0.85f;
+        speed = speed - 0.55f;
     }
 
     private void Move()
