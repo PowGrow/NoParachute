@@ -7,11 +7,12 @@ using UnityEngine;
 
 public class CollisionDetectorForLimbs : MonoBehaviour
 {
+    
     [SerializeField] private Sprite sprite;
     [SerializeField] private GameObject limbPrefab;
     [SerializeField] private ParticleSystem _particleSystem;
-    private int countOfClashes;
     [SerializeField] private int maxClashes=12;
+    private int countOfClashes;
 
     private void OnTriggerEnter(Collider other)
     {
