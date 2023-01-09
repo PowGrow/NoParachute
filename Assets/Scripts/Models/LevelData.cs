@@ -17,8 +17,8 @@ public class LevelData : ScriptableObject
     public List<Sprite> Walls;
     public List<Sprite> Decoratives;
     public List<int> WallsSpawnChance;
-    public List<GameObject> Obstacles;
     public List<int> ObstacleCreateDistance;
     public List<GameObject> ObstacleToCreate;
     public List<float> ObstacleCreateRotation;
+    public List<Vector3> TunnelShape;
 }

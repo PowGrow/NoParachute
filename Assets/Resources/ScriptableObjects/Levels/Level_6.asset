@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206c4ec46b83c5f4da140675c8b86a23, type: 3}
+  m_Name: Level_6
+  m_EditorClassIdentifier: 
+  LevelId: 6
+  LevelName: Old Mine 3
+  NextLevel: {fileID: 11400000, guid: bddf82b1d22762f4f9f3dffa642a07c8, type: 2}
+  PreviousLevel: {fileID: 11400000, guid: e21307405fe858f45a86b56f90e7c839, type: 2}
+  FallSpeed: 0
+  RotationMode: 2
+  RotationSpeed: 0.8
+  StartObstacleDelay: 0
+  BottomColor: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
+  BackgroundColor: {r: 0.3019608, g: 0.2, b: 0.19215687, a: 1}
+  Walls:
+  - {fileID: 21300000, guid: b129b121c76b85b44bb9d03309060014, type: 3}
+  Decoratives: []
+  WallsSpawnChance: 64000000
+  ObstacleCreateDistance: 3200000019000000050000001900000028000000280000000100000019000000280000000a0000000f000000140000000f000000320000000f0000001400000014000000140000001400000014000000140000000a0000000a000000140000000f000000140000002800000028000000280000002800000005000000140000001400000014000000050000000f000000190000000f000000140000001e000000
+  ObstacleToCreate:
+  - {fileID: 8408874223295658042, guid: f20b78f6b0dbe5344a74fb4a1f287997, type: 3}
+  - {fileID: 8408874223295658042, guid: f20b78f6b0dbe5344a74fb4a1f287997, type: 3}
+  - {fileID: 7730678588670523938, guid: dd6c55238c7ec0f4ba6379e10db5e856, type: 3}
+  - {fileID: 8408874223295658042, guid: f20b78f6b0dbe5344a74fb4a1f287997, type: 3}
+  - {fileID: 5038520055627181061, guid: ed1434ff3ca0bdc4888d1028d473134e, type: 3}
+  - {fileID: 5038520055627181061, guid: ed1434ff3ca0bdc4888d1028d473134e, type: 3}
+  - {fileID: 7730678588670523938, guid: dd6c55238c7ec0f4ba6379e10db5e856, type: 3}
+  - {fileID: 8408874223295658042, guid: f20b78f6b0dbe5344a74fb4a1f287997, type: 3}
+  - {fileID: 5038520055627181061, guid: ed1434ff3ca0bdc4888d1028d473134e, type: 3}
+  - {fileID: 8408874223295658042, guid: f20b78f6b0dbe5344a74fb4a1f287997, type: 3}
+  - {fileID: 5038520055627181061, guid: ed1434ff3ca0bdc4888d1028d473134e, type: 3}
+  - {fileID: 8408874223295658042, guid: f20b78f6b0dbe5344a74fb4a1f287997, type: 3}
+  - {fileID: 7730678588670523938, guid: dd6c55238c7ec0f4ba6379e10db5e856, type: 3}
+  - {fileID: 5038520055627181061, guid: ed1434ff3ca0bdc4888d1028d473134e, type: 3}
+  - {fileID: 5038520055627181061, guid: ed1434ff3ca0bdc4888d1028d473134e, type: 3}
+  - {fileID: 8545173298137560094, guid: f03eae8c6267d03489d2cd4bcf35800d, type: 3}
+  - {fileID: 7730678588670523938, guid: dd6c55238c7ec0f4ba6379e10db5e856, type: 3}
+  - {fileID: 8545173298137560094, guid: f03eae8c6267d03489d2cd4bcf35800d, type: 3}
+  - {fileID: 7730678588670523938, guid: dd6c55238c7ec0f4ba6379e10db5e856, type: 3}
+  - {fileID: 7730678588670523938, guid: dd6c55238c7ec0f4ba6379e10db5e856, type: 3}
+  - {fileID: 1426714686762534274, guid: d5594902e9b872e41a84deaa60f62cce, type: 3}
+  - {fileID: 1426714686762534274, guid: d5594902e9b872e41a84deaa60f62cce, type: 3}
+  - {fileID: 8408874223295658042, guid: f20b78f6b0dbe5344a74fb4a1f287997, type: 3}
+  - {fileID: 7730678588670523938, guid: dd6c55238c7ec0f4ba6379e10db5e856, type: 3}
+  - {fileID: 1426714686762534274, guid: d5594902e9b872e41a84deaa60f62cce, type: 3}
+  - {fileID: 1510260208086146680, guid: 2534d6a397b4c1346b91804d06767df9, type: 3}
+  - {fileID: 5038520055627181061, guid: ed1434ff3ca0bdc4888d1028d473134e, type: 3}
+  - {fileID: 5038520055627181061, guid: ed1434ff3ca0bdc4888d1028d473134e, type: 3}
+  - {fileID: 5038520055627181061, guid: ed1434ff3ca0bdc4888d1028d473134e, type: 3}
+  - {fileID: 5038520055627181061, guid: ed1434ff3ca0bdc4888d1028d473134e, type: 3}
+  - {fileID: 5038520055627181061, guid: ed1434ff3ca0bdc4888d1028d473134e, type: 3}
+  - {fileID: 1510260208086146680, guid: 2534d6a397b4c1346b91804d06767df9, type: 3}
+  - {fileID: 1426714686762534274, guid: d5594902e9b872e41a84deaa60f62cce, type: 3}
+  - {fileID: 1510260208086146680, guid: 2534d6a397b4c1346b91804d06767df9, type: 3}
+  - {fileID: 1510260208086146680, guid: 2534d6a397b4c1346b91804d06767df9, type: 3}
+  - {fileID: 1426714686762534274, guid: d5594902e9b872e41a84deaa60f62cce, type: 3}
+  - {fileID: 1673528613148345661, guid: 351cd795eb083684f9d09fd8646a6701, type: 3}
+  - {fileID: 7730678588670523938, guid: dd6c55238c7ec0f4ba6379e10db5e856, type: 3}
+  - {fileID: 1673528613148345661, guid: 351cd795eb083684f9d09fd8646a6701, type: 3}
+  - {fileID: 8408874223295658042, guid: f20b78f6b0dbe5344a74fb4a1f287997, type: 3}
+  ObstacleCreateRotation:
+  - 0
+  - 90
+  - 90
+  - 180
+  - 0
+  - 0
+  - 90
+  - 0
+  - 0
+  - 90
+  - 0
+  - 180
+  - 90
+  - 0
+  - 0
+  - 90
+  - 180
+  - 180
+  - 180
+  - 270
+  - 180
+  - 270
+  - 0
+  - 0
+  - 90
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 90
+  - 270
+  - 0
+  - 90
+  - 180
+  - 0
+  - 0
+  - 90
+  - 0
+  TunnelShape:
+  - {x: 2.5, y: 0, z: 0}
+  - {x: 0, y: 2.5, z: 0}
+  - {x: -2.5, y: 0, z: 0}
+  - {x: 0, y: -2.5, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 2, y: 2, z: 0}
+  - {x: 2.75, y: 0, z: 0}
+  - {x: 0, y: 3, z: 0}
+  - {x: 0, y: -3, z: 0}
+  - {x: 0, y: 0, z: 0}

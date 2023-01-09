@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 public interface IProgressProvider
 {
@@ -10,6 +12,14 @@ public interface IProgressProvider
     public LevelData PreviousLevel { get; }
     public int PreviousObstacleDelta { get; set; }
     public int ObstacleToCreateIndex { get; set; }
+    public float RotationStep { get;}
+    public RotationMode RotationMode { get;}
+
+    public List<Vector3> TunelShape { get; }
+
+    public bool DoChangeTunelShape { get; set; }
+
+    public int TunelShapeId { get; set; }
 
     public void OnProgress();
 

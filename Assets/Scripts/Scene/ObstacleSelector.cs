@@ -15,6 +15,7 @@ public class ObstacleSelector : MonoBehaviour
     }
     private void IncrementObstacleToCreateIndex()
     {
+        _progressProvider.DoChangeTunelShape = false;
         _progressProvider.PreviousObstacleDelta = 0;
         _progressProvider.ObstacleToCreateIndex++;
     }

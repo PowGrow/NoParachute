@@ -15,7 +15,7 @@ MonoBehaviour:
   LevelId: 0
   LevelName: The Jump
   NextLevel: {fileID: 11400000, guid: c325fbd22e5488e43a0063844b172cca, type: 2}
-  PreviousLevel: {fileID: 11400000, guid: c325fbd22e5488e43a0063844b172cca, type: 2}
+  PreviousLevel: {fileID: 11400000, guid: ca3267dde99b2ce4f91f3dcc94b0605a, type: 2}
   FallSpeed: 0
   RotationMode: 0
   RotationSpeed: 0

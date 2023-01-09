@@ -16,7 +16,7 @@ public class ProjectContext : MonoBehaviour
     }
     public ISceneContext SceneContext { get; private set; }
 
-    public GameData GameData { get; private set; }
+    public GameData GameData { get; set; }
     public static ProjectContext Instance { get; private set; }
 
     public void LoadLevelData(int levelId, SceneType scene)

@@ -8,6 +8,7 @@ public class WallEventHandler : MonoBehaviour
     public event Action<Wall> DestroyingWallEvent;
     public event Action<Quaternion,Vector3> RefreshBorderEvent;
     public event Action LevelProgressEvent;
+    public event Action ObstacleFadeOutEvent;
 
     public void RefreshBorderPosition()
     {
@@ -22,5 +23,10 @@ public class WallEventHandler : MonoBehaviour
     public void WallDestroyPositionReached()
     {
         DestroyingWallEvent?.Invoke(_wall);
+    }
+
+    public void ObstacleFadeOutPositionReached()
+    {
+        ObstacleFadeOutEvent?.Invoke();
     }
 }
