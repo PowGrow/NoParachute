@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6717987255221703338}
   - component: {fileID: 5616095373406667110}
   - component: {fileID: 6431896285110590000}
+  - component: {fileID: 2806903078372421448}
   m_Layer: 0
   m_Name: Obstacle6_broken
   m_TagString: Untagged
@@ -133,3 +134,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.16888988, y: 0.5496944, z: 0.178011}
   m_Center: {x: -0.31228852, y: -0.39181954, z: 0.010484487}
+--- !u!114 &2806903078372421448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2581940697886086351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238a3f26fbb9b1a4c8440abe0f784984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animators:
+  - {fileID: 6717987255221703338}
