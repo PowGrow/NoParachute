@@ -1,13 +1,13 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CollisionDetectorForTors : MonoBehaviour
 {
+    public bool IsAlive { get; private set; } = true;
+    public event Action PlayerDeathEvent;
     private void OnTriggerEnter(Collider other)
     {
-        Time.timeScale = 0;
-        
+        IsAlive = false;
+        PlayerDeathEvent?.Invoke();
     }
 }

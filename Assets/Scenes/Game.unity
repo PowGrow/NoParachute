@@ -355,6 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelCompletedObject: {fileID: 110010464}
+  _torsCollision: {fileID: 7590580352156609095}
 --- !u!1 &202945436
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,6 +770,7 @@ GameObject:
   - component: {fileID: 791318588}
   - component: {fileID: 791318590}
   - component: {fileID: 791318589}
+  - component: {fileID: 791318591}
   m_Layer: 5
   m_Name: LEVEL-COMPLETE
   m_TagString: Untagged
@@ -895,6 +897,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791318587}
   m_CullTransparentMesh: 1
+--- !u!114 &791318591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791318587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a512636598e507048b39f58141df8c85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelCompletedColor: {r: 0.5058824, g: 0.3529412, b: 0.58431375, a: 0}
+  DeadColor: {r: 0.754717, g: 0.08899963, b: 0.08899963, a: 1}
+  _torsCollision: {fileID: 7590580352156609095}
 --- !u!1 &798594985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2747,3 +2764,14 @@ PrefabInstance:
     - {fileID: 6069245391976820742, guid: 3cc2b31cc983bef4793a0df295f94616, type: 3}
     - {fileID: 8078877207746364946, guid: 3cc2b31cc983bef4793a0df295f94616, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3cc2b31cc983bef4793a0df295f94616, type: 3}
+--- !u!114 &7590580352156609095 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5809127719149204904, guid: 3cc2b31cc983bef4793a0df295f94616, type: 3}
+  m_PrefabInstance: {fileID: 7590580352156609094}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da9167c22a345564ba7f33a48d5c4b6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

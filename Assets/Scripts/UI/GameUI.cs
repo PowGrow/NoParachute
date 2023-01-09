@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameUI : MonoBehaviour
 {
     [SerializeField] private GameObject _levelCompletedObject;
+    [SerializeField] private CollisionDetectorForTors _torsCollision;
 
     private const string GAME = "Game";
     private const string MAIN_MENU = "MainMenu";
@@ -13,12 +14,22 @@ public class GameUI : MonoBehaviour
 
     private void LevelCompletedEventHandler()
     {
-        StartCoroutine(FinishingLevelUI(ProjectContext.Instance.LevelCompleteDelay,_levelCompletedObject));
+        StartCoroutine(FinishingLevelUI(ProjectContext.Instance.LevelCompleteDelay, _levelCompletedObject));
+    }
+
+    private void PlayerDeathEventHandler()
+    {
+        PlayerDeathLevelUIShow(_levelCompletedObject);
     }
 
     private IEnumerator FinishingLevelUI(float delayOnFinishing, GameObject objectToShow)
     {
         yield return new WaitForSeconds(delayOnFinishing);
+        objectToShow.SetActive(true);
+    }
+
+    private void PlayerDeathLevelUIShow(GameObject objectToShow)
+    {
         objectToShow.SetActive(true);
     }
 
@@ -43,9 +54,14 @@ public class GameUI : MonoBehaviour
     {
         SceneManager.LoadScene(MAIN_MENU);
     }
+    private void OnEnable()
+    {
+        _torsCollision.PlayerDeathEvent += PlayerDeathEventHandler;
+    }
 
     private void OnDisable()
     {
         _progressProvider.LevelCompletedEvent -= LevelCompletedEventHandler;
+        _torsCollision.PlayerDeathEvent -= PlayerDeathEventHandler;
     }
 }

@@ -18,7 +18,6 @@ public class CollisionDetectorForLimbs : MonoBehaviour
             new Vector3(this.transform.position.x, this.transform.position.y, other.transform.position.z-0.3f);
         GetComponent<BoxCollider>().enabled = false;
         Movement.Instance.DecreseSpeed();
-        
     }
 
     
