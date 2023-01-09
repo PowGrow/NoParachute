@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 112896977394929918}
   - component: {fileID: 3121051609043178198}
   - component: {fileID: 7907439926634906744}
+  - component: {fileID: -5114542848794842132}
   m_Layer: 0
   m_Name: Obstacle3
   m_TagString: Untagged
@@ -144,3 +145,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-5114542848794842132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2823569703243352518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238a3f26fbb9b1a4c8440abe0f784984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animators:
+  - {fileID: 7907439926634906744}

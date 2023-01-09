@@ -12,13 +12,16 @@ public class LevelsUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _deaths;
     [SerializeField] private TextMeshProUGUI _limbsLost;
 
+    private GameData _gameData;
+
     private const string LEVEL_ID_LOCKED = "?";
-    private const string LEVEL_STATS_LOCKED = "??????";
+    private const string LEVEL_NAME_LOCKED = "??????";
+    private const string LEVEL_STATS_ZERO = "-";
     private void RefreshUiInformation()
     {
         var progressProvider = ProjectContext.Instance.SceneContext.ProgressProvider;
         var levelId = progressProvider.LevelId;
-        if (GameData.UnlockedLevels >= levelId)
+        if (_gameData.UnlockedLevels >= levelId)
             UpdateStats(levelId, progressProvider);
         else
             SetPlugText();
@@ -28,20 +31,32 @@ public class LevelsUI : MonoBehaviour
     {
         _levelId.text = levelId.ToString();
         _levelName.text = progressProvider.LevelName;
-        _highScore.text = GameData.LevelStats[levelId].HighScore.ToString();
-        _bestTime.text = GetTimeStringFromFloat(GameData.LevelStats[levelId].BestTime);
-        _deaths.text = GameData.LevelStats[levelId].Deaths.ToString();
-        _limbsLost.text = GameData.LevelStats[levelId].LimbsLost.ToString();
+        if (_gameData.LevelStats[levelId].HighScore == 0)
+            _highScore.text = LEVEL_STATS_ZERO;
+        else
+            _highScore.text = _gameData.LevelStats[levelId].HighScore.ToString();
+        if (_gameData.LevelStats[levelId].BestTime == 0)
+            _bestTime.text = LEVEL_STATS_ZERO;
+        else
+            _bestTime.text = GetTimeStringFromFloat(_gameData.LevelStats[levelId].BestTime);
+        if (_gameData.LevelStats[levelId].Deaths == 0)
+            _deaths.text = LEVEL_STATS_ZERO;
+        else
+            _deaths.text = _gameData.LevelStats[levelId].Deaths.ToString();
+        if (_gameData.LevelStats[levelId].LimbsLost == 0)
+            _limbsLost.text = LEVEL_STATS_ZERO;
+        else
+            _limbsLost.text = _gameData.LevelStats[levelId].LimbsLost.ToString();
     }
 
     private void SetPlugText()
     {
         _levelId.text = LEVEL_ID_LOCKED;
-        _levelName.text = LEVEL_STATS_LOCKED;
-        _highScore.text = LEVEL_STATS_LOCKED;
-        _bestTime.text = LEVEL_STATS_LOCKED;
-        _deaths.text = LEVEL_STATS_LOCKED;
-        _limbsLost.text = LEVEL_STATS_LOCKED;
+        _levelName.text = LEVEL_NAME_LOCKED;
+        _highScore.text = LEVEL_STATS_ZERO;
+        _bestTime.text = LEVEL_STATS_ZERO;
+        _deaths.text = LEVEL_STATS_ZERO;
+        _limbsLost.text = LEVEL_STATS_ZERO;
     }
 
     private string GetTimeStringFromFloat(float bestLevelTime)
@@ -52,6 +67,7 @@ public class LevelsUI : MonoBehaviour
 
     private void OnEnable()
     {
+        _gameData = ProjectContext.Instance.GameData;
         RefreshUiInformation();
         _mainMenuInputHandler.RefreshLevelUiEvent += RefreshUiInformation;
     }

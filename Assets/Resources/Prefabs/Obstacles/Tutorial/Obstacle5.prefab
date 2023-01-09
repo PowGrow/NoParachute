@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3436299230592849782}
   - component: {fileID: 5841059528978271474}
   - component: {fileID: 3249309003806199586}
+  - component: {fileID: -3260345219615163902}
   m_Layer: 0
   m_Name: Obstacle5
   m_TagString: Untagged
@@ -159,3 +160,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3260345219615163902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3311487364120324207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238a3f26fbb9b1a4c8440abe0f784984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animators:
+  - {fileID: 3249309003806199586}

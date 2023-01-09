@@ -30,7 +30,7 @@ public class GameUI : MonoBehaviour
 
     public void OnNextLevelButtonClick()
     {
-        ProjectContext.Instance.LevelId = _progressProvider.NextLevel.LevelId;
+        ProjectContext.Instance.GameData.SelectedLevelId = ProjectContext.Instance.SceneContext.ProgressProvider.NextLevel.LevelId;
         SceneManager.LoadScene(GAME);
     }
 

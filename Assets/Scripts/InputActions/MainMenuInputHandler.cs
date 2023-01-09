@@ -11,6 +11,7 @@ public class MainMenuInputHandler : MonoBehaviour
     [SerializeField] private GameObject _buttonsContainer;
     [SerializeField] private GameObject _levelsContainer;
     private MenuInputController _menuInputController;
+    private GameData _gameData;
 
     public event Action RefreshLevelUiEvent;
 
@@ -25,23 +26,23 @@ public class MainMenuInputHandler : MonoBehaviour
 
     public void OnPlayStoryButtonClick()
     {
-        GameData.SelectedLevelId = GameData.LastSelectedLevelId;
+        _gameData.SelectedLevelId = _gameData.LastSelectedLevelId;
         SubscribeAndShowTransition(_transitionController, _buttonsContainer, _levelsContainer);
     }
     public void OnNextLevelButtonClick()
     {
-        GameData.SelectedLevelId = ProjectContext.Instance.SceneContext.ProgressProvider.NextLevel.LevelId;
+        _gameData.SelectedLevelId = ProjectContext.Instance.SceneContext.ProgressProvider.NextLevel.LevelId;
         SubscribeAndShowTransition(_transitionController, null, null);
     }
     public void OnPreviousButtonClick()
     {
-        GameData.SelectedLevelId = ProjectContext.Instance.SceneContext.ProgressProvider.PreviousLevel.LevelId;
+        _gameData.SelectedLevelId = ProjectContext.Instance.SceneContext.ProgressProvider.PreviousLevel.LevelId;
         SubscribeAndShowTransition(_transitionController, null, _levelsContainer) ;
     }
     public void OnBackButtonClick()
     {
-        GameData.LastSelectedLevelId = GameData.SelectedLevelId;
-        GameData.SelectedLevelId = 100;
+        _gameData.LastSelectedLevelId = _gameData.SelectedLevelId;
+        _gameData.SelectedLevelId = 100;
         SubscribeAndShowTransition(_transitionController, _levelsContainer, _buttonsContainer);
     }
     public void OnStartButtonClick()
@@ -62,7 +63,7 @@ public class MainMenuInputHandler : MonoBehaviour
     private void OnScreenIsBlackEventHandler()
     {
         _cameraAnimator.PlayStartAnimation();
-        ProjectContext.Instance.LoadLevelData(GameData.SelectedLevelId, SceneType.MainMenu);
+        ProjectContext.Instance.LoadLevelData(_gameData.SelectedLevelId, SceneType.MainMenu);
         RefreshLevelUiEvent?.Invoke();
         _transitionController.ScreenIsBlack -= OnScreenIsBlackEventHandler;
     }
@@ -72,6 +73,11 @@ public class MainMenuInputHandler : MonoBehaviour
         _menuInputController = new MenuInputController();
 
         _menuInputController.UI.AnyKeyPressed.performed += callbackContext => HideIntroSplash(_menuInputController.UI.AnyKeyPressed, _transitionController, _splashScreenObject);
+    }
+
+    private void Start()
+    {
+        _gameData = ProjectContext.Instance.GameData;
     }
 
     private void OnEnable()

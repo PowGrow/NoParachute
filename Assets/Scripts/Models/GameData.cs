@@ -13,8 +13,8 @@ public class GameData
         LevelStats = new List<LevelStats>();
         LevelStats.Add(new LevelStats(0,0,0,0));
     }
-    public static int SelectedLevelId { get; set; }
-    public static int LastSelectedLevelId { get; set; }
-    public static int UnlockedLevels { get; set; }
-    public static List<LevelStats> LevelStats { get; set; }
+    public int SelectedLevelId { get; set; } = 0;
+    public int LastSelectedLevelId { get; set; } = 0;
+    public int UnlockedLevels { get; set; } = 0;
+    public List<LevelStats> LevelStats { get; set; }
 }

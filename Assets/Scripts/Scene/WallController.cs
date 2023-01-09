@@ -9,7 +9,9 @@ public class WallController : MonoBehaviour
     private List<IWallTransformation> _wallTransformations;
     private IProgressProvider _progressProvider;
     private HashSet<Animator> _wallAnimators = new HashSet<Animator>();
-    private WallAnimator _wallAnimator;
+
+    private Vector2 _tunelShapeDelta = Vector2.zero;
+    private Vector2 _currentTunelDelta = Vector2.zero;
 
     public event Action<WallEventHandler> WallCreatedEvent;
     public event Action<WallEventHandler> WallDestroyingEvent;
@@ -21,7 +23,6 @@ public class WallController : MonoBehaviour
 
     public void Initialize(GameObject wallPrefab, IProgressProvider progressProvider, WallAnimator wallAnimator)
     {
-        _wallAnimator = wallAnimator;
         _wallPrefab = wallPrefab;
         _progressProvider = progressProvider;
         if(progressProvider != null)
@@ -38,6 +39,22 @@ public class WallController : MonoBehaviour
             var wallAnimator = wall.Animator;
             wallAnimator.speed = (float)WallAnimator.CurrentSpeed;
             _wallAnimators.Add(wallAnimator);
+
+            if (_progressProvider.DoChangeTunelShape)
+            {
+                if(_tunelShapeDelta == Vector2.zero)
+                    _tunelShapeDelta = TunnelShapeChanger.GetDeltaShape(wall.transform.position);
+                _currentTunelDelta += _tunelShapeDelta;
+            }
+            else
+                if (_tunelShapeDelta != Vector2.zero)
+                {
+                    _progressProvider.TunelShapeId++;
+                    _tunelShapeDelta = Vector2.zero;
+                }
+            wall.transform.position = new Vector3(wall.transform.position.x + _currentTunelDelta.x, wall.transform.position.y + _currentTunelDelta.y, wall.transform.position.z);
+
+
         }
         WallCreatedEvent?.Invoke(wall.EventHandler);
         foreach (IWallTransformation wallTransformation in wallTransformations)

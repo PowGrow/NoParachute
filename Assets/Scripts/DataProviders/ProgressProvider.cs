@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class ProgressProvider : IProgressProvider
 {
@@ -28,6 +30,15 @@ public class ProgressProvider : IProgressProvider
         get { return _obstacleToCreateIndex; }
         set { _obstacleToCreateIndex = value; }
     }
+    public float RotationStep { get; private set; }
+
+    public RotationMode RotationMode { get; private set; }
+
+    public List<Vector3> TunelShape { get; private set; }
+
+    public bool DoChangeTunelShape { get; set; } = false;
+
+    public int TunelShapeId { get; set; } = 0;
 
     public ProgressProvider(LevelData currentLevel)
     {
@@ -36,6 +47,9 @@ public class ProgressProvider : IProgressProvider
         NextLevel = currentLevel.NextLevel;
         PreviousLevel = currentLevel.PreviousLevel;
         _startObstacleDelay = currentLevel.StartObstacleDelay;
+        RotationStep = currentLevel.RotationSpeed;
+        RotationMode = currentLevel.RotationMode;
+        TunelShape = currentLevel.TunnelShape;
     }
 
     private bool IsGameScene()

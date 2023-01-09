@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2011602632950871403}
   - component: {fileID: 2011602632950871402}
   - component: {fileID: 6658138978655372454}
+  - component: {fileID: 6091003966651029256}
   m_Layer: 0
   m_Name: Breakable1
   m_TagString: Untagged
@@ -119,3 +120,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6091003966651029256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011602632950871401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238a3f26fbb9b1a4c8440abe0f784984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wall: {fileID: 0}
+  _animators:
+  - {fileID: 6658138978655372454}
