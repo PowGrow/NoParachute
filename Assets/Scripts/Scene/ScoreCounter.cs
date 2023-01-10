@@ -17,28 +17,32 @@ public class ScoreCounter : MonoBehaviour
     {
         _progressProvider = progressProvider;
         _progressProvider.LevelCompletedEvent += LevelCompleteEventHandler;
+        CollisionDetectorForTors.PlayerDeath += LevelFailedEventHandler;
     }
     private void SaveLevelStats()
     {
         if(_gameData.SelectedLevelId == _gameData.UnlockedLevels) _gameData.UnlockedLevels++;
-        FillLevelStats();
+        FillLevelStats(true);
     }
-    private void FillLevelStats()
+    private void FillLevelStats(bool isLevelCompleted)
     {
         var levelStats = _gameData.LevelStats[_gameData.SelectedLevelId];
         var IntScore = (int)Score;
 
-        if (levelStats.BestTime != 0)
+        if(isLevelCompleted)
         {
-            if (_timer < levelStats.BestTime)
+            if (levelStats.BestTime != 0)
+            {
+                if (_timer < levelStats.BestTime)
+                    levelStats.BestTime = _timer;
+            }
+            else
                 levelStats.BestTime = _timer;
+            if (IntScore > levelStats.HighScore)
+                levelStats.HighScore = IntScore;
         }
-        else
-            levelStats.BestTime = _timer;
-        if (IntScore > levelStats.HighScore)
-            levelStats.HighScore = IntScore;
-        levelStats.Deaths = Deaths;
-        levelStats.LimbsLost = LimbsLost;
+        levelStats.Deaths += Deaths;
+        levelStats.LimbsLost += LimbsLost;
     }
     private void LevelCompleteEventHandler()
     {
@@ -46,9 +50,9 @@ public class ScoreCounter : MonoBehaviour
     }
     private void LevelFailedEventHandler()
     {
-        //TO-DO
         _isActive = false;
-        FillLevelStats();
+        FillLevelStats(false);
+        SaveLoader.SaveData(_gameData);
     }
 
     private IEnumerator LevelComplete(int delay)
@@ -77,5 +81,6 @@ public class ScoreCounter : MonoBehaviour
     private void OnDisable()
     {
         _progressProvider.LevelCompletedEvent -= LevelCompleteEventHandler;
+        CollisionDetectorForTors.PlayerDeath -= LevelFailedEventHandler;
     }
 }

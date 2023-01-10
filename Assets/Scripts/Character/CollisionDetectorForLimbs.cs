@@ -12,6 +12,7 @@ public class CollisionDetectorForLimbs : MonoBehaviour
     [SerializeField] private GameObject limbPrefab;
     [SerializeField] private ParticleSystem _particleSystem;
     [SerializeField] private int maxClashes=12;
+    [SerializeField] private ScoreCounter _scoreCounter;
     private int countOfClashes;
 
     private void OnTriggerEnter(Collider other)
@@ -37,7 +38,7 @@ public class CollisionDetectorForLimbs : MonoBehaviour
         GetComponent<BoxCollider>().enabled = false;
         Movement.Instance.DecreseSpeed();
         GetComponent<AudioSource>().Play();
-        
+        _scoreCounter.LimbsLost++;
     }
     
 

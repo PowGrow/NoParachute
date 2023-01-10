@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
     {
         WallAnimator.CurrentSpeed = speed;
         SpeedChangeEvent?.Invoke(speed);
+        Debug.Log("SPEED UP!");
     }
 
     public void DecreseSpeed()
