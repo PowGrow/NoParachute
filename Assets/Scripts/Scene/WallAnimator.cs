@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 
 public class WallAnimator : MonoBehaviour
@@ -7,6 +8,8 @@ public class WallAnimator : MonoBehaviour
     private Movement _playerMovement;
 
     private const string PLAYER_OBJECT_NAME = "Character";
+
+    public static event Action<WallSpeed> SpeedChangedEvent;
     public static WallSpeed CurrentSpeed { get; set; }
 
     public void Initialize(WallController walLController)
@@ -22,6 +25,7 @@ public class WallAnimator : MonoBehaviour
         {
             animator.speed = (float)speed;
         }
+        SpeedChangedEvent?.Invoke(speed);
     }
 
 

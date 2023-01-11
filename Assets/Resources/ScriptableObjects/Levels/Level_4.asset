@@ -16,6 +16,7 @@ MonoBehaviour:
   LevelName: Old Mine 1
   NextLevel: {fileID: 11400000, guid: e21307405fe858f45a86b56f90e7c839, type: 2}
   PreviousLevel: {fileID: 11400000, guid: 211292768049efe4dbd9ae852463cad0, type: 2}
+  Stars: 00000000c8320000983a0000
   FallSpeed: 0
   RotationMode: 2
   RotationSpeed: 0.6

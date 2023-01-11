@@ -38,7 +38,7 @@ public class CollisionDetectorForLimbs : MonoBehaviour
         GetComponent<BoxCollider>().enabled = false;
         Movement.Instance.DecreseSpeed();
         GetComponent<AudioSource>().Play();
-        _scoreCounter.LimbsLost++;
+        _scoreCounter.LimbsLostPenalityApply();
     }
     
 

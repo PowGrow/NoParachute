@@ -6,10 +6,17 @@ using UnityEngine.SceneManagement;
 public class GameUI : MonoBehaviour
 {
     [SerializeField] private GameObject _levelCompletedObject;
+    [SerializeField] private GameObject _gameUiObject;
     [SerializeField] private TextMeshProUGUI _levelCompleteLabel;
     [SerializeField] private GameObject _nextLevelButton;
+    [SerializeField] private GameObject _timeLabel;
+    [SerializeField] private GameObject _percentLabel;
+    [SerializeField] private GameObject _starsObject;
+    [SerializeField] private GameObject _bestTimeObject;
+    [SerializeField] private GameObject _highScore;
     [SerializeField] private Color LevelCompleteColor;
     [SerializeField] private Color DeathColor;
+    [SerializeField] private ScoreCounter _scoreCounter;
 
     private const string GAME = "Game";
     private const string MAIN_MENU = "MainMenu";
@@ -20,24 +27,35 @@ public class GameUI : MonoBehaviour
 
     private void LevelCompletedEventHandler()
     {
-        StartCoroutine(FinishingLevelUI(ProjectContext.Instance.LevelCompleteDelay,_levelCompletedObject));
+        StartCoroutine(FinishingLevelUI(true, ProjectContext.Instance.LevelCompleteDelay,_levelCompletedObject,_gameUiObject));
         _levelCompleteLabel.text = LEVEL_COMPLETE;
         _levelCompleteLabel.color = LevelCompleteColor;
         _nextLevelButton.SetActive(true);
+        _starsObject.SetActive(true);
     }
 
     private void PlayerDeathEventHandler()
     {
-        StartCoroutine(FinishingLevelUI(0, _levelCompletedObject));
+        StartCoroutine(FinishingLevelUI(false, 0, _levelCompletedObject, _gameUiObject));
         _levelCompleteLabel.text = YOU_DEAD;
         _levelCompleteLabel.color = DeathColor;
         _nextLevelButton.SetActive(false);
+        _timeLabel.SetActive(false);
+        _percentLabel.SetActive(true);
     }
 
-    private IEnumerator FinishingLevelUI(float delayOnFinishing, GameObject objectToShow)
+    private IEnumerator FinishingLevelUI(bool isFinished, float delayOnFinishing, GameObject objectToShow, GameObject objectToHide)
     {
         yield return new WaitForSeconds(delayOnFinishing);
+        if(isFinished)
+        {
+            if (_scoreCounter.BestTime)
+                _bestTimeObject.SetActive(true);
+            if (_scoreCounter.HighScore)
+                _highScore.SetActive(true);
+        }
         objectToShow.SetActive(true);
+        objectToHide.SetActive(false);
     }
 
     public void Initialize(IProgressProvider progressProvider)
