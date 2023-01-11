@@ -19,10 +19,13 @@ public class CollisionDetectorForLimbs : MonoBehaviour
     {
         if(other.tag!="Border")
         {
-            DestroyLimb();
-            GameObject limb = Instantiate(limbPrefab,this.transform.position,quaternion.identity,other.transform);
-            limb.transform.position =
-                new Vector3(this.transform.position.x, this.transform.position.y, other.transform.position.z-0.3f);
+            if(other.tag != "Breakable")
+            {
+                DestroyLimb();
+                GameObject limb = Instantiate(limbPrefab,this.transform.position,quaternion.identity,other.transform);
+                limb.transform.position =
+                    new Vector3(this.transform.position.x, this.transform.position.y, other.transform.position.z-0.3f);
+            }
         }
         else if (countOfClashes < maxClashes)
             countOfClashes++;

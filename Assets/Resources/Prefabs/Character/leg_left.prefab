@@ -116,7 +116,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.050579302, y: 0.07758561, z: 0.07500267}
+  m_Size: {x: 0.050579302, y: 0.07758561, z: 0.06}
   m_Center: {x: 0.034512054, y: -0.07617681, z: 0.0034327507}
 --- !u!114 &8309832342054201695
 MonoBehaviour:
@@ -131,8 +131,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  limb: {fileID: 0}
+  limbPrefab: {fileID: 0}
   _particleSystem: {fileID: 0}
+  maxClashes: 12
+  _scoreCounter: {fileID: 0}
 --- !u!198 &23253320497928579
 ParticleSystem:
   m_ObjectHideFlags: 0

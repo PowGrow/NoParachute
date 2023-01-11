@@ -4340,7 +4340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3552362141282140255, guid: 3cc2b31cc983bef4793a0df295f94616, type: 3}
       propertyPath: m_Size.z
-      value: 0.06
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 5809127719149204904, guid: 3cc2b31cc983bef4793a0df295f94616, type: 3}
       propertyPath: _scoreCounter
@@ -4348,7 +4348,7 @@ PrefabInstance:
       objectReference: {fileID: 1433494962}
     - target: {fileID: 6310526620707119558, guid: 3cc2b31cc983bef4793a0df295f94616, type: 3}
       propertyPath: m_Size.z
-      value: 0.06
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 7102231204110862051, guid: 3cc2b31cc983bef4793a0df295f94616, type: 3}
       propertyPath: _animator
@@ -4440,11 +4440,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8494794305575523995, guid: 3cc2b31cc983bef4793a0df295f94616, type: 3}
       propertyPath: m_Size.z
-      value: 0.06
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 8929469662396319618, guid: 3cc2b31cc983bef4793a0df295f94616, type: 3}
       propertyPath: m_Size.z
-      value: 0.06
+      value: 0.03
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6998076416509113801, guid: 3cc2b31cc983bef4793a0df295f94616, type: 3}

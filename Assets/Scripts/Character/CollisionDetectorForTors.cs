@@ -10,12 +10,28 @@ public class CollisionDetectorForTors : MonoBehaviour
     {
         if (other.gameObject.tag != "Border")
         {
-            Movement.Instance.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, other.transform.position.z-0.2f);
-            _audioSource.Play();
-            _scoreCounter.Deaths++;
-            PlayerDeath.Invoke();
-            Time.timeScale = 0;
+            if (other.gameObject.tag == "Breakable")
+            {
+                if (WallAnimator.CurrentSpeed != WallSpeed.Fast)
+                    Death(other);
+                else
+                {
+                    var breakable = other.GetComponent<Breakable>();
+                    breakable.Break();
+                }
+            }
+            else
+                Death(other);
         }
+    }
+
+    private void Death(Collider other)
+    {
+        Movement.Instance.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, other.transform.position.z - 0.2f);
+        _audioSource.Play();
+        _scoreCounter.Deaths++;
+        PlayerDeath.Invoke();
+        Time.timeScale = 0;
     }
 
     private void Awake()
