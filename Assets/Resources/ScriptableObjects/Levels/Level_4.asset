@@ -20,7 +20,7 @@ MonoBehaviour:
   FallSpeed: 0
   RotationMode: 2
   RotationSpeed: 0.6
-  StartObstacleDelay: 0
+  StartObstacleDelay: 10
   BottomColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
   BackgroundColor: {r: 0.42352942, g: 0.30980393, b: 0.24313726, a: 1}
   Walls:

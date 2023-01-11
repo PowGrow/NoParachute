@@ -4434,6 +4434,10 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 0.08
       objectReference: {fileID: 0}
+    - target: {fileID: 7590580353720211637, guid: 3cc2b31cc983bef4793a0df295f94616, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8189588289616447571, guid: 3cc2b31cc983bef4793a0df295f94616, type: 3}
       propertyPath: m_IsKinematic
       value: 0

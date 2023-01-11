@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5297089960960379518}
+  - component: {fileID: 3990349936360662701}
   m_Layer: 0
   m_Name: belts
   m_TagString: Untagged
@@ -33,6 +34,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3990349936360662701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8545173298137560094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238a3f26fbb9b1a4c8440abe0f784984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animators:
+  - {fileID: 6188122161034948997}
+  - {fileID: 8874309238193975356}
+  - {fileID: 8123867452190109624}
+  - {fileID: 6807902280664690177}
 --- !u!1001 &341673364515345475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40,6 +58,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5297089960960379518}
     m_Modifications:
+    - target: {fileID: 1012983095459992408, guid: 256f06b576f2e744fbf45e105be7776a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2173216499289798883, guid: 256f06b576f2e744fbf45e105be7776a, type: 3}
       propertyPath: m_Name
       value: belt1
@@ -88,11 +110,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4397172645784837146, guid: 256f06b576f2e744fbf45e105be7776a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 256f06b576f2e744fbf45e105be7776a, type: 3}
 --- !u!4 &4426822352571577970 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4166644826452779569, guid: 256f06b576f2e744fbf45e105be7776a, type: 3}
+  m_PrefabInstance: {fileID: 341673364515345475}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6807902280664690177 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6541294911477611074, guid: 256f06b576f2e744fbf45e105be7776a, type: 3}
+  m_PrefabInstance: {fileID: 341673364515345475}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8123867452190109624 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8358707823802088443, guid: 256f06b576f2e744fbf45e105be7776a, type: 3}
   m_PrefabInstance: {fileID: 341673364515345475}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6591982244050385341
@@ -150,10 +183,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: belt2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8400622902812467355, guid: 6fd4edb8132ccf94a9b14e1dd4722e54, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5160617193467703257, guid: 6fd4edb8132ccf94a9b14e1dd4722e54, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6fd4edb8132ccf94a9b14e1dd4722e54, type: 3}
 --- !u!4 &1743558602479265871 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4848461052130906610, guid: 6fd4edb8132ccf94a9b14e1dd4722e54, type: 3}
+  m_PrefabInstance: {fileID: 6591982244050385341}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6188122161034948997 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1052660050402461752, guid: 6fd4edb8132ccf94a9b14e1dd4722e54, type: 3}
+  m_PrefabInstance: {fileID: 6591982244050385341}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8874309238193975356 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2331894662698813825, guid: 6fd4edb8132ccf94a9b14e1dd4722e54, type: 3}
   m_PrefabInstance: {fileID: 6591982244050385341}
   m_PrefabAsset: {fileID: 0}

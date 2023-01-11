@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class GameContext : SceneContextBase
 {
-    public GameContext(Dictionary<PrefabType,GameObject> prefabs, ISpriteProvider spriteProvider, IObstacleProvider obstacleProvider, IProgressProvider progressProvider, IObjectProvider objectProvider)
+    public GameContext(Dictionary<PrefabType,GameObject> prefabs, ISpriteProvider spriteProvider, IObstacleProvider obstacleProvider, IProgressProvider progressProvider, IObjectProvider objectProvider, ISoundProvider soundProvider)
     {
         SceneType = SceneType.Game;
         SpriteProvider = spriteProvider;
         ObstacleProvider = obstacleProvider;
         ProgressProvider = progressProvider;
         ObjectProvider = objectProvider;
+        SoundProvider = soundProvider;
         InstantiatedGameObjects = new List<GameObject>(prefabs.Count());
         InitializeScene(prefabs[PrefabType.WallController], prefabs[PrefabType.WallContainer], prefabs[PrefabType.Bottom],prefabs[PrefabType.Background], prefabs[PrefabType.BorderController], prefabs[PrefabType.WallAnimator], spriteProvider, progressProvider);
     }
@@ -44,11 +45,11 @@ public class GameContext : SceneContextBase
         wallAnimatorObject.SetActive(false);
         borderControllerObject.SetActive(false);
 
-        var wallController = wallControllerObject.AddComponent<WallController>();
+        WallController = wallControllerObject.AddComponent<WallController>();
         var wallAnimator = wallAnimatorObject.AddComponent<WallAnimator>();
         var borderController = borderControllerObject.AddComponent<BorderController>();
-        wallController.Initialize(wallContainerPrefab, progressProvider, wallAnimator);
-        wallAnimator.Initialize(wallController);
-        borderController.Initialize(wallController);
+        WallController.Initialize(wallContainerPrefab, progressProvider, wallAnimator);
+        wallAnimator.Initialize(WallController);
+        borderController.Initialize(WallController);
     }
 }

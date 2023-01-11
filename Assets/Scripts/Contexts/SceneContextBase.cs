@@ -8,6 +8,9 @@ public abstract class SceneContextBase : MonoBehaviour, ISceneContext
     public IObstacleProvider ObstacleProvider { get; protected set; }
     public IProgressProvider ProgressProvider { get; protected set; }
     public IObjectProvider ObjectProvider { get; protected set; }
+    public ISoundProvider SoundProvider { get; protected set; }
+
+    public WallController WallController { get; protected set; }
 
     protected List<GameObject> InstantiatedGameObjects;
 

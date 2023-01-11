@@ -78,9 +78,11 @@ public class WallController : MonoBehaviour
     private void DestroyWallEventHandler(Wall wall)
     {
         if(_progressProvider != null)
+        {
             _wallAnimators.Remove(wall.Animator);
+            _progressProvider.UnsubscribingOnWallPassesEvent(wall.EventHandler);
+        }
         WallDestroyingEvent?.Invoke(wall.EventHandler);
-        _progressProvider.UnsubscribingOnWallPassesEvent(wall.EventHandler);
         wall.EventHandler.CreatingWallEvent -= CreatingWallEventHandler;
         wall.EventHandler.DestroyingWallEvent -= DestroyWallEventHandler;
 
