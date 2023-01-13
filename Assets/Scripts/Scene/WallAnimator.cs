@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WallAnimator : MonoBehaviour
@@ -19,6 +20,20 @@ public class WallAnimator : MonoBehaviour
         gameObject.SetActive(true);
     }
 
+    public void SetWallSpeed(WallSpeed speed)
+    {
+        if (speed == WallSpeed.Normal || speed == WallSpeed.Fast)
+            SpeedChangeEventHandler(speed);
+        else if (speed == WallSpeed.Slow)
+        {
+            foreach (Animator animator in _wallController.WallAnimators)
+            {
+                animator.speed = 0.2f;
+            }
+            SpeedChangedEvent?.Invoke(speed);
+        }
+    }
+
     private void SpeedChangeEventHandler(WallSpeed speed)
     {
         foreach (Animator animator in _wallController.WallAnimators)
@@ -31,7 +46,11 @@ public class WallAnimator : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerMovement = ProjectContext.Instance.SceneContext.ObjectProvider.GetObject(PLAYER_OBJECT_NAME).GetComponent<Movement>();
+        try
+        {
+            _playerMovement = ProjectContext.Instance.SceneContext.ObjectProvider.GetObject(PLAYER_OBJECT_NAME).GetComponent<Movement>();
+        }
+        catch(KeyNotFoundException) {}
         if(_playerMovement != null)
             _playerMovement.SpeedChangeEvent += SpeedChangeEventHandler;
     }

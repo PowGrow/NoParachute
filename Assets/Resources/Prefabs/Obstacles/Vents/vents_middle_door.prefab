@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1918165144473207095}
   - component: {fileID: 8681411638040624902}
   - component: {fileID: 7864270924381057303}
-  - component: {fileID: 2122052325437666751}
   m_Layer: 0
   m_Name: middle_door
   m_TagString: Untagged
@@ -106,20 +105,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2122052325437666751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4102499155103232977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 238a3f26fbb9b1a4c8440abe0f784984, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animators:
-  - {fileID: 7864270924381057303}
 --- !u!1 &5599902286890476821
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +115,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5585348419513747063}
   - component: {fileID: 8137471324220400011}
-  - component: {fileID: 8567109274960140139}
   - component: {fileID: 4414193598272420458}
   m_Layer: 0
   m_Name: middle_door_frame
@@ -206,20 +190,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8567109274960140139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5599902286890476821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 238a3f26fbb9b1a4c8440abe0f784984, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animators:
-  - {fileID: 4414193598272420458}
 --- !u!95 &4414193598272420458
 Animator:
   serializedVersion: 4
@@ -253,6 +223,7 @@ GameObject:
   - component: {fileID: 8672617564454787543}
   - component: {fileID: 3480900535685862546}
   - component: {fileID: 1900957404428359306}
+  - component: {fileID: 5937784473612108642}
   m_Layer: 0
   m_Name: vents_middle_door
   m_TagString: Untagged
@@ -329,6 +300,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.66045785, y: 0.32452798, z: 0.2}
   m_Center: {x: 0, y: 0.50028276, z: 0}
+--- !u!114 &5937784473612108642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7179488159972311794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238a3f26fbb9b1a4c8440abe0f784984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animators:
+  - {fileID: 7864270924381057303}
+  - {fileID: 4414193598272420458}
 --- !u!1 &7459693551171156758
 GameObject:
   m_ObjectHideFlags: 0

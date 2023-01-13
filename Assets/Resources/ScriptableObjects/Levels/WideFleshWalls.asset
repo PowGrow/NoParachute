@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206c4ec46b83c5f4da140675c8b86a23, type: 3}
+  m_Name: WideFleshWalls
+  m_EditorClassIdentifier: 
+  LevelId: 0
+  LevelName: 
+  LevelTheme: {fileID: 0}
+  NextLevel: {fileID: 0}
+  PreviousLevel: {fileID: 0}
+  Stars: 
+  FallSpeed: 0
+  RotationMode: 0
+  RotationSpeed: 0
+  StartObstacleDelay: 0
+  BottomColor: {r: 0, g: 0, b: 0, a: 0}
+  BackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  Walls:
+  - {fileID: 21300000, guid: 3ed1f104af98d984ab9825974641cd00, type: 3}
+  - {fileID: 21300000, guid: 966906354d704d84fb2693c8a3e87fcc, type: 3}
+  Decoratives: []
+  WallsSpawnChance: 0500000005000000
+  ObstacleCreateDistance: 
+  ObstacleToCreate: []
+  ObstacleCreateRotation: []
+  TunnelShape: []

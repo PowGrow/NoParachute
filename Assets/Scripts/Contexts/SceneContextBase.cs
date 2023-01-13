@@ -11,6 +11,8 @@ public abstract class SceneContextBase : MonoBehaviour, ISceneContext
     public ISoundProvider SoundProvider { get; protected set; }
 
     public WallController WallController { get; protected set; }
+    public BorderController BorderController { get; protected set; }
+    public WallAnimator WallAnimator { get; protected set; }
 
     protected List<GameObject> InstantiatedGameObjects;
 

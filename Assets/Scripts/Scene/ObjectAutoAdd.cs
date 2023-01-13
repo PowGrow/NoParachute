@@ -3,7 +3,7 @@ using UnityEngine;
 public class ObjectAutoAdd : MonoBehaviour
 {
     private IObjectProvider _objectProvider;
-    private void Awake()
+    public void Awake()
     {
         _objectProvider = ProjectContext.Instance.SceneContext.ObjectProvider;
     }

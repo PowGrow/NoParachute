@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    private static bool IsActive = true;
     private MovementController _movementController;
     private Rigidbody2D rb;
     [SerializeField] private Animator _animator;
@@ -17,6 +18,11 @@ public class Movement : MonoBehaviour
         SpeedChangeEvent?.Invoke(speed);
     }
 
+    public static void DisableControlls()
+    {
+        IsActive = false;
+    }
+
     public void DecreseSpeed()
     {
         speed = speed - 0.55f;
@@ -24,9 +30,12 @@ public class Movement : MonoBehaviour
 
     private void Move()
     {
-        Vector2 direction = _movementController.Player.Movement.ReadValue<Vector2>();
-        Animation(direction);
-        rb.AddRelativeForce(direction*speed);
+        if(IsActive)
+        {
+            Vector2 direction = _movementController.Player.Movement.ReadValue<Vector2>();
+            Animation(direction);
+            rb.AddRelativeForce(direction*speed);
+        }
     }
 
     private void Animation(Vector2 direction)

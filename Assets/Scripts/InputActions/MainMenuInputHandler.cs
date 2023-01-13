@@ -31,7 +31,10 @@ public class MainMenuInputHandler : MonoBehaviour
     }
     public void OnNextLevelButtonClick()
     {
-        _gameData.SelectedLevelId = ProjectContext.Instance.SceneContext.ProgressProvider.NextLevel.LevelId;
+        if (ProjectContext.Instance.SceneContext.ProgressProvider.NextLevel.LevelId == ProjectContext.Instance.SceneContext.ProgressProvider.LevelId)
+            _gameData.SelectedLevelId = 0;
+        else
+            _gameData.SelectedLevelId = ProjectContext.Instance.SceneContext.ProgressProvider.NextLevel.LevelId;
         SubscribeAndShowTransition(_transitionController, null, null);
     }
     public void OnPreviousButtonClick()

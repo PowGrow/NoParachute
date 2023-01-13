@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelId: 7
   LevelName: Stone Cave 1
+  LevelTheme: {fileID: 0}
   NextLevel: {fileID: 11400000, guid: c2d38d151686fbb43b10d9ddf9cca116, type: 2}
   PreviousLevel: {fileID: 11400000, guid: ca3267dde99b2ce4f91f3dcc94b0605a, type: 2}
-  Stars: 
+  Stars: 0000000088130000e8030000
   FallSpeed: 0
   RotationMode: 1
   RotationSpeed: 1

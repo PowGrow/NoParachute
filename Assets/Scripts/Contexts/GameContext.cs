@@ -46,10 +46,10 @@ public class GameContext : SceneContextBase
         borderControllerObject.SetActive(false);
 
         WallController = wallControllerObject.AddComponent<WallController>();
-        var wallAnimator = wallAnimatorObject.AddComponent<WallAnimator>();
-        var borderController = borderControllerObject.AddComponent<BorderController>();
-        WallController.Initialize(wallContainerPrefab, progressProvider, wallAnimator);
-        wallAnimator.Initialize(WallController);
-        borderController.Initialize(WallController);
+        WallAnimator = wallAnimatorObject.AddComponent<WallAnimator>();
+        BorderController = borderControllerObject.AddComponent<BorderController>();
+        WallController.Initialize(wallContainerPrefab, progressProvider, WallAnimator);
+        WallAnimator.Initialize(WallController);
+        BorderController.Initialize(WallController);
     }
 }

@@ -10,6 +10,7 @@ public class SpeedLabelUI : MonoBehaviour
     private int _targetSpeed;
     private const int BASE_SPEED = 230;
     private const int FAST_SPEED = 315;
+    private const int SLOW_SPEED = 50;
 
     private const float DELAY = 0.1f;
 
@@ -19,6 +20,8 @@ public class SpeedLabelUI : MonoBehaviour
             _targetSpeed = BASE_SPEED;
         if(speed == WallSpeed.Fast)
             _targetSpeed = FAST_SPEED;
+        if (speed == WallSpeed.Slow)
+            _targetSpeed = SLOW_SPEED;
     }
 
     private IEnumerator MatchSpeed(float delay)
