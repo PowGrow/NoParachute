@@ -59,7 +59,6 @@ public class BorderController : MonoBehaviour
             else
             {
                 _delay--;
-                Debug.Log(_delay);
             }
                 
         }

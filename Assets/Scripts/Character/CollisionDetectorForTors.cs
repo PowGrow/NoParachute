@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CollisionDetectorForTors : MonoBehaviour
 {
+    public bool IsAlive { get; private set; } = true;
     [SerializeField] private ScoreCounter _scoreCounter;
     private AudioSource _audioSource;
     public static event Action PlayerDeath; 
@@ -30,6 +31,7 @@ public class CollisionDetectorForTors : MonoBehaviour
         Movement.Instance.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, other.transform.position.z - 0.2f);
         _audioSource.Play();
         _scoreCounter.Deaths++;
+        IsAlive = false;
         PlayerDeath.Invoke();
         Time.timeScale = 0;
     }
