@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelId: 1
   LevelName: Tutorial
+  LevelTheme: {fileID: 8300000, guid: bdbba6a462b019347bd239f54bb4ad43, type: 3}
   NextLevel: {fileID: 11400000, guid: a2bb286ff926ece4c85c7ffed3b4c508, type: 2}
   PreviousLevel: {fileID: 11400000, guid: bddf82b1d22762f4f9f3dffa642a07c8, type: 2}
   Stars: 00000000c8320000983a0000

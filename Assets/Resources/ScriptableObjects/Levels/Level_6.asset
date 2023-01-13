@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelId: 6
   LevelName: Old Mine 3
+  LevelTheme: {fileID: 8300000, guid: e64426b71160f1e43aae0489135e3113, type: 3}
   NextLevel: {fileID: 11400000, guid: 05766cde416273746ba503830a65e01c, type: 2}
   PreviousLevel: {fileID: 11400000, guid: e21307405fe858f45a86b56f90e7c839, type: 2}
   Stars: 00000000c8320000983a0000

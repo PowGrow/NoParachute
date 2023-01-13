@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelId: 8
   LevelName: Stone Cave 2
+  LevelTheme: {fileID: 8300000, guid: c09af67b91292b248b16f73f5ad0ee61, type: 3}
   NextLevel: {fileID: 11400000, guid: bddf82b1d22762f4f9f3dffa642a07c8, type: 2}
   PreviousLevel: {fileID: 11400000, guid: 05766cde416273746ba503830a65e01c, type: 2}
   Stars: 
