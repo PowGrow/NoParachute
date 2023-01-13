@@ -39,25 +39,26 @@ public class ProjectContext : MonoBehaviour
         var obstacleProvider = new ObstacleProvider(levelData);
         var progressProvider = new ProgressProvider(levelData);
         var objectProvider = new ObjectProvider();
+        var soundProvider = new SoundProvider(levelData);
         switch (sceneType)
         {
             case (SceneType.MainMenu):
-                MainMenuInitialize(prefabs, spriteProvider, progressProvider,objectProvider);
+                MainMenuInitialize(prefabs, spriteProvider, progressProvider,objectProvider, soundProvider);
             break;
             case (SceneType.Game):
-                GameInitialize(prefabs, spriteProvider, obstacleProvider, progressProvider, objectProvider);
+                GameInitialize(prefabs, spriteProvider, obstacleProvider, progressProvider, objectProvider, soundProvider);
             break;
         }
     }
 
-    private void GameInitialize(Dictionary<PrefabType, GameObject> prefabs, ISpriteProvider spriteProvider, IObstacleProvider obstacleProvider, IProgressProvider progressProvider, IObjectProvider objectProvider)
+    private void GameInitialize(Dictionary<PrefabType, GameObject> prefabs, ISpriteProvider spriteProvider, IObstacleProvider obstacleProvider, IProgressProvider progressProvider, IObjectProvider objectProvider, ISoundProvider soundProvider)
     {
-        SceneContext = new GameContext(prefabs, spriteProvider, obstacleProvider, progressProvider, objectProvider);
+        SceneContext = new GameContext(prefabs, spriteProvider, obstacleProvider, progressProvider, objectProvider, soundProvider);
     }
 
-    private void MainMenuInitialize(Dictionary<PrefabType, GameObject> prefabs, ISpriteProvider spriteProvider, IProgressProvider progressProvider, IObjectProvider objectProvider)
+    private void MainMenuInitialize(Dictionary<PrefabType, GameObject> prefabs, ISpriteProvider spriteProvider, IProgressProvider progressProvider, IObjectProvider objectProvider, ISoundProvider soundProvider)
     {
-        SceneContext = new MainMenuContext(prefabs, spriteProvider, progressProvider,objectProvider);
+        SceneContext = new MainMenuContext(prefabs, spriteProvider, progressProvider,objectProvider, soundProvider);
     }
 
     private Dictionary<PrefabType, GameObject> GetPrefabDictionary(List<GameObject> prefabs, List<PrefabType> prefabTypes)

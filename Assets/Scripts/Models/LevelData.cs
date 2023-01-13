@@ -6,8 +6,10 @@ public class LevelData : ScriptableObject
 {
     public int LevelId;
     public string LevelName;
+    public AudioClip LevelTheme;
     public LevelData NextLevel;
     public LevelData PreviousLevel;
+    public List<int> Stars;
     public float FallSpeed;
     public RotationMode RotationMode;
     public float RotationSpeed;

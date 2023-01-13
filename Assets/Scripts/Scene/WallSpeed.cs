@@ -1,5 +1,6 @@
 public enum WallSpeed
 {
     Normal = 1,
-    Fast = 3,
+    Fast = 2,
+    Slow = 3,
 }

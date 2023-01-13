@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class MainMenuContext : SceneContextBase
 {
-    public MainMenuContext(Dictionary<PrefabType, GameObject> prefabs, ISpriteProvider spriteProvider, IProgressProvider progressProvider, IObjectProvider objectProvider )
+    public MainMenuContext(Dictionary<PrefabType, GameObject> prefabs, ISpriteProvider spriteProvider, IProgressProvider progressProvider, IObjectProvider objectProvider, ISoundProvider soundProvider )
     {
         SceneType = SceneType.MainMenu;
         SpriteProvider = spriteProvider;
         ProgressProvider = progressProvider;
         ObjectProvider = objectProvider;
+        SoundProvider = soundProvider;
         InstantiatedGameObjects = new List<GameObject>(prefabs.Count());
         InitializeScene(prefabs[PrefabType.WallController], prefabs[PrefabType.WallContainer], prefabs[PrefabType.Bottom],prefabs[PrefabType.Background], prefabs[PrefabType.BorderController], prefabs[PrefabType.WallAnimator], spriteProvider, progressProvider);
     }
@@ -38,7 +39,7 @@ public class MainMenuContext : SceneContextBase
         });
 
         wallControllerObject.SetActive(false);
-        var wallController = wallControllerObject.AddComponent<WallController>();
-        wallController.Initialize(wallContainerPrefab, null, null);
+        WallController = wallControllerObject.AddComponent<WallController>();
+        WallController.Initialize(wallContainerPrefab, null, null);
     }
 }

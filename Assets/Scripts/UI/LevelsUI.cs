@@ -59,7 +59,7 @@ public class LevelsUI : MonoBehaviour
         _limbsLost.text = LEVEL_STATS_ZERO;
     }
 
-    private string GetTimeStringFromFloat(float bestLevelTime)
+    public static string GetTimeStringFromFloat(float bestLevelTime)
     {
         TimeSpan time = TimeSpan.FromSeconds(bestLevelTime);
         return time.ToString("hh':'mm':'ss");

@@ -20,6 +20,12 @@ public class ProgressProvider : IProgressProvider
     public LevelData NextLevel { get; private set; }
     public LevelData PreviousLevel { get; private set; }
 
+    public int WallsPassed { get; private set; }
+
+    public int OnePercentOfCompleting { get; private set; }
+
+    public List<int> Stars { get; private set; }
+
     public int PreviousObstacleDelta
     {
         get { return _previousObstacleDelta; }
@@ -50,6 +56,8 @@ public class ProgressProvider : IProgressProvider
         RotationStep = currentLevel.RotationSpeed;
         RotationMode = currentLevel.RotationMode;
         TunelShape = currentLevel.TunnelShape;
+        Stars = currentLevel.Stars;
+        OnePercentOfCompleting = (currentLevel.ObstacleCreateDistance.Sum() + currentLevel.StartObstacleDelay + (int)ProjectContext.Instance.LevelCompleteDelay * 10) / 100;
     }
 
     private bool IsGameScene()
@@ -100,6 +108,11 @@ public class ProgressProvider : IProgressProvider
         OnProgress();
     }
 
+    private void WallPassedEventHandler()
+    {
+        WallsPassed++;
+    }
+
     public void SubscribingOnWallCreatingEvents(WallController wallController)
     {
         wallController.WallCreatedEvent += WallCreatedEventHandler;
@@ -108,6 +121,16 @@ public class ProgressProvider : IProgressProvider
     public void UnsubscribingFromWallCreatingEvents(WallController wallController)
     {
         wallController.WallCreatedEvent -= WallCreatedEventHandler;
+    }
+
+    public void SubscribingOnWallPassesEvent(WallEventHandler eventHandler)
+    {
+        eventHandler.ObstacleFadeOutEvent += WallPassedEventHandler;
+    }
+
+    public void UnsubscribingOnWallPassesEvent(WallEventHandler eventHandler)
+    {
+        eventHandler.ObstacleFadeOutEvent -= WallPassedEventHandler;
     }
 
 }

@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelId: 0
   LevelName: The Jump
+  LevelTheme: {fileID: 0}
   NextLevel: {fileID: 11400000, guid: c325fbd22e5488e43a0063844b172cca, type: 2}
-  PreviousLevel: {fileID: 11400000, guid: ca3267dde99b2ce4f91f3dcc94b0605a, type: 2}
+  PreviousLevel: {fileID: 11400000, guid: 8a77a3c62a4e6b04d87407eff10eac8f, type: 2}
+  Stars: 000000000000000000000000
   FallSpeed: 0
   RotationMode: 0
   RotationSpeed: 0
@@ -25,7 +27,6 @@ MonoBehaviour:
   Walls: []
   Decoratives: []
   WallsSpawnChance: 
-  Obstacles: []
   ObstacleCreateDistance: 040000000400000004000000040000000400000004000000040000000400000004000000040000000400000004000000040000000400000004000000040000000400000004000000040000000400000004000000040000000400000004000000040000000400000004000000040000000400000004000000040000000100000001000000010000000100000001000000
   ObstacleToCreate:
   - {fileID: 6558846527805446379, guid: 081ae0b322b4ab340bbfda8fabd45d5a, type: 3}
@@ -101,3 +102,4 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  TunnelShape: []

@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206c4ec46b83c5f4da140675c8b86a23, type: 3}
+  m_Name: Level_13
+  m_EditorClassIdentifier: 
+  LevelId: 13
+  LevelName: Flesh Hell 2
+  LevelTheme: {fileID: 0}
+  NextLevel: {fileID: 11400000, guid: 8a77a3c62a4e6b04d87407eff10eac8f, type: 2}
+  PreviousLevel: {fileID: 11400000, guid: b2a5d0f625de4a643a5f0e588d763cbe, type: 2}
+  Stars: 00000000401f0000c8320000
+  FallSpeed: 0
+  RotationMode: 2
+  RotationSpeed: 0.3
+  StartObstacleDelay: 1
+  BottomColor: {r: 0.32156864, g: 0, b: 0.16078432, a: 1}
+  BackgroundColor: {r: 0.3207547, g: 0, b: 0.16204111, a: 1}
+  Walls:
+  - {fileID: 21300000, guid: 9a96077fa9b0c024dbc991849bb9369f, type: 3}
+  - {fileID: 21300000, guid: 087b353ce1b08ae4b8214e164296da54, type: 3}
+  Decoratives: []
+  WallsSpawnChance: 0500000005000000
+  ObstacleCreateDistance: 0a000000010000000a000000140000001e00000019000000460000001b0000001e000000010000001e000000010000001e000000010000001400000001000000280000000100000028000000010000001e0000001e0000001e0000001e0000001400000014000000010000001e00000001000000010000001e000000010000001e000000010000001e00000014000000140000001e00000019000000460000001b0000001e00000023000000
+  ObstacleToCreate:
+  - {fileID: 546048399344534743, guid: 20dd1430f09197948a883c1e89e2232b, type: 3}
+  - {fileID: 1419844808556991690, guid: bef3bd3869d13b34a8f5fa719448d07a, type: 3}
+  - {fileID: 5586021608839650350, guid: da43a75b2a61df34fa2e6295d69f8684, type: 3}
+  - {fileID: 4401123319232994149, guid: 85a097c2b0a0a964681b99ea00ace4bf, type: 3}
+  - {fileID: 3637435419992199698, guid: 802abed748bd6204997da98c104dfd32, type: 3}
+  - {fileID: 4401123319232994149, guid: 85a097c2b0a0a964681b99ea00ace4bf, type: 3}
+  - {fileID: 4401123319232994149, guid: 85a097c2b0a0a964681b99ea00ace4bf, type: 3}
+  - {fileID: 4401123319232994149, guid: 85a097c2b0a0a964681b99ea00ace4bf, type: 3}
+  - {fileID: 4401123319232994149, guid: 85a097c2b0a0a964681b99ea00ace4bf, type: 3}
+  - {fileID: 5706303725403729044, guid: c17313005d180444bbc65bb11364a8d0, type: 3}
+  - {fileID: 5033858089255179691, guid: 3b7d55ee736fb7e4e9c1833fa92c13b6, type: 3}
+  - {fileID: 5706303725403729044, guid: c17313005d180444bbc65bb11364a8d0, type: 3}
+  - {fileID: 7631297872998235238, guid: 5d0c10564af376a48a0c19f2ff370b00, type: 3}
+  - {fileID: 5706303725403729044, guid: c17313005d180444bbc65bb11364a8d0, type: 3}
+  - {fileID: 5033858089255179691, guid: 3b7d55ee736fb7e4e9c1833fa92c13b6, type: 3}
+  - {fileID: 4451055352358287395, guid: beecefd04238efc408529967b94a133b, type: 3}
+  - {fileID: 5038520055627181061, guid: ed1434ff3ca0bdc4888d1028d473134e, type: 3}
+  - {fileID: 546048399344534743, guid: 20dd1430f09197948a883c1e89e2232b, type: 3}
+  - {fileID: 5038520055627181061, guid: ed1434ff3ca0bdc4888d1028d473134e, type: 3}
+  - {fileID: 7919403000863558818, guid: 2a38a2bcacace564fbee6e650c35ac03, type: 3}
+  - {fileID: 6195658525207017271, guid: 1687d7a3a0963d24b949240669812bde, type: 3}
+  - {fileID: 6195658525207017271, guid: 1687d7a3a0963d24b949240669812bde, type: 3}
+  - {fileID: 6195658525207017271, guid: 1687d7a3a0963d24b949240669812bde, type: 3}
+  - {fileID: 9079970207105170065, guid: bc732f669aff349449e7fae444af627d, type: 3}
+  - {fileID: 6195658525207017271, guid: 1687d7a3a0963d24b949240669812bde, type: 3}
+  - {fileID: 3001140094873466426, guid: 65bbe9580a5b4a04a9bd32888d031561, type: 3}
+  - {fileID: 4374689934442284079, guid: e9fdf26ef63be6442a59dd0f1023bbc8, type: 3}
+  - {fileID: 4153514441185481272, guid: cdb5458600b3e874e83b5474cc61446d, type: 3}
+  - {fileID: 6195658525207017271, guid: 1687d7a3a0963d24b949240669812bde, type: 3}
+  - {fileID: 4537738114192465539, guid: b9549d2c85b6a6e448eeadee4efa1ff8, type: 3}
+  - {fileID: 4153514441185481272, guid: caa0d18b908182443973fa5b2a886cfd, type: 3}
+  - {fileID: 6195658525207017271, guid: 1687d7a3a0963d24b949240669812bde, type: 3}
+  - {fileID: 8456498405091310935, guid: 049978cce38fb184cb277085348c2941, type: 3}
+  - {fileID: 6195658525207017271, guid: 1687d7a3a0963d24b949240669812bde, type: 3}
+  - {fileID: 5549403740242495369, guid: dde0a7cff7a56c04780ddb275018dc7a, type: 3}
+  - {fileID: 5586021608839650350, guid: da43a75b2a61df34fa2e6295d69f8684, type: 3}
+  - {fileID: 4401123319232994149, guid: 85a097c2b0a0a964681b99ea00ace4bf, type: 3}
+  - {fileID: 3637435419992199698, guid: 802abed748bd6204997da98c104dfd32, type: 3}
+  - {fileID: 4401123319232994149, guid: 85a097c2b0a0a964681b99ea00ace4bf, type: 3}
+  - {fileID: 4401123319232994149, guid: 85a097c2b0a0a964681b99ea00ace4bf, type: 3}
+  - {fileID: 4401123319232994149, guid: 85a097c2b0a0a964681b99ea00ace4bf, type: 3}
+  - {fileID: 4401123319232994149, guid: 85a097c2b0a0a964681b99ea00ace4bf, type: 3}
+  - {fileID: 4401123319232994149, guid: 85a097c2b0a0a964681b99ea00ace4bf, type: 3}
+  ObstacleCreateRotation:
+  - 0
+  - 0
+  - 0
+  - 90
+  - 270
+  - 270
+  - 90
+  - 270
+  - 0
+  - 270
+  - 0
+  - 90
+  - 0
+  - 270
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 90
+  - 180
+  - 270
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 90
+  - 270
+  - 270
+  - 90
+  - 270
+  - 0
+  - 180
+  TunnelShape:
+  - {x: 0, y: 1.5, z: 0}
+  - {x: 0, y: 1, z: 0}

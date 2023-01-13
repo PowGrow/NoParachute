@@ -14,12 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelId: 6
   LevelName: Old Mine 3
-  NextLevel: {fileID: 11400000, guid: bddf82b1d22762f4f9f3dffa642a07c8, type: 2}
+  LevelTheme: {fileID: 8300000, guid: e64426b71160f1e43aae0489135e3113, type: 3}
+  NextLevel: {fileID: 11400000, guid: 05766cde416273746ba503830a65e01c, type: 2}
   PreviousLevel: {fileID: 11400000, guid: e21307405fe858f45a86b56f90e7c839, type: 2}
+  Stars: 00000000c8320000983a0000
   FallSpeed: 0
-  RotationMode: 2
+  RotationMode: 1
   RotationSpeed: 0.8
-  StartObstacleDelay: 0
+  StartObstacleDelay: 10
   BottomColor: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
   BackgroundColor: {r: 0.3019608, g: 0.2, b: 0.19215687, a: 1}
   Walls:

@@ -3,63 +3,50 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    [SerializeField] private GameObject _speedEffect;
+    private static bool IsActive = true;
     private MovementController _movementController;
     private Rigidbody2D rb;
-    [Header("Range of Movement")] 
-    [SerializeField] private float xMaxBorder=0.5f;
-    [SerializeField] private float xMinBorder=-0.6f;
-    [SerializeField] private float yMaxBorder=0.5f;
-    [SerializeField] private float yMinBorder=-0.5f;
     [SerializeField] private Animator _animator;
-    private float speed = 5f;
+    private float speed = 6f;
+
     public static Movement Instance;
     public event Action<WallSpeed> SpeedChangeEvent;
 
     private void ChangeFallSpeed(WallSpeed speed)
     {
         WallAnimator.CurrentSpeed = speed;
+        if (speed == WallSpeed.Normal)
+            _speedEffect.SetActive(false);
+        else
+            _speedEffect.SetActive(true);
         SpeedChangeEvent?.Invoke(speed);
+    }
+
+    public static void DisableControlls()
+    {
+        IsActive = false;
     }
 
     public void DecreseSpeed()
     {
-        speed = speed - 1f;
+        speed = speed - 0.55f;
     }
 
     private void Move()
     {
-        Vector2 direction = _movementController.Player.Movement.ReadValue<Vector2>();
-        _animator.SetFloat("Y",direction.y);
-        _animator.SetFloat("X",direction.x);
-        rb.AddForce(direction*speed);
-        if (rb.transform.position.x > xMaxBorder)
+        if(IsActive)
         {
-            rb.Sleep();
-            rb.AddForce(new Vector2(-0.1f, 0f));
-            rb.AddForce(new Vector2(-10f, 0f));
-
+            Vector2 direction = _movementController.Player.Movement.ReadValue<Vector2>();
+            Animation(direction);
+            rb.AddRelativeForce(direction*speed);
         }
-        if (rb.transform.position.x < xMinBorder)
-        {
-            rb.Sleep();
-            rb.AddForce(new Vector2(10f, 0f));
-        }
-        if (rb.transform.position.y > yMaxBorder)
-        {
-            rb.Sleep();
-            rb.AddForce(new Vector2(0, -10f));
-        }
-        if (rb.transform.position.y < yMinBorder)
-        {
-            rb.Sleep();
-            rb.AddForce(new Vector2(0, 10f));
-        }
-
     }
 
-    private void Animation()
+    private void Animation(Vector2 direction)
     {
-        
+        _animator.SetFloat("Y",direction.y);
+        _animator.SetFloat("X",direction.x);
     }
 
     void Update()
@@ -72,11 +59,17 @@ public class Movement : MonoBehaviour
         Instance = this;
         _movementController = new MovementController();
         rb = GetComponent<Rigidbody2D>();
+        rb.drag = 1.5f;
+        CollisionDetectorForTors.PlayerDeath += Disable;
+    }
+
+    private void Disable()
+    {
+        _movementController.Disable();
     }
 
     private void OnEnable()
     {
-        
         _movementController.Player.SpeedUp.performed += callbackContext => ChangeFallSpeed(WallSpeed.Fast);
         _movementController.Player.SpeedUp.canceled += callbackContext => ChangeFallSpeed(WallSpeed.Normal);
         _movementController.Enable();
@@ -84,6 +77,7 @@ public class Movement : MonoBehaviour
 
     private void OnDisable()
     {
-        _movementController.Disable();
+        Disable();
+        CollisionDetectorForTors.PlayerDeath -= Disable;
     }
 }

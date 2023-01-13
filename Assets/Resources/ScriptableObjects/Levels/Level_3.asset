@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelId: 3
   LevelName: Deep Forest 2
+  LevelTheme: {fileID: 8300000, guid: a43f60f9935957c40bae59be5a933e57, type: 3}
   NextLevel: {fileID: 11400000, guid: 8b6d07e2b8dfa4e4d8cb26a69b569d0c, type: 2}
   PreviousLevel: {fileID: 11400000, guid: a2bb286ff926ece4c85c7ffed3b4c508, type: 2}
+  Stars: 00000000c8320000983a0000
   FallSpeed: 0
   RotationMode: 2
   RotationSpeed: 0.2
@@ -35,7 +37,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 101d3f69a4c1a50428a18e8a6ff9d532, type: 3}
   - {fileID: 21300000, guid: b58c452769c98e345aac19fd55a2d3d9, type: 3}
   WallsSpawnChance: 1e0000001e0000001e0000001e00000046000000460000004600000046000000
-  Obstacles: []
   ObstacleCreateDistance: 50000000140000001600000011000000460000001400000014000000140000001400000014000000140000000f000000320000001400000014000000140000001400000019000000140000001e0000000f000000140000001900000046000000140000001e0000001e0000001e00000023000000
   ObstacleToCreate:
   - {fileID: 570827284102860720, guid: 4514eca5ab73e34428f300dfc8ee750f, type: 3}
@@ -97,3 +98,4 @@ MonoBehaviour:
   - 0
   - 0
   - 180
+  TunnelShape: []

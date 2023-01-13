@@ -10,8 +10,11 @@ public interface IProgressProvider
     public string LevelName { get;}
     public LevelData NextLevel { get; }
     public LevelData PreviousLevel { get; }
+    public int WallsPassed { get; }
+    public int OnePercentOfCompleting { get;}
     public int PreviousObstacleDelta { get; set; }
     public int ObstacleToCreateIndex { get; set; }
+    public List<int> Stars { get;}
     public float RotationStep { get;}
     public RotationMode RotationMode { get;}
 
@@ -26,4 +29,8 @@ public interface IProgressProvider
     public void SubscribingOnWallCreatingEvents(WallController wallController);
 
     public void UnsubscribingFromWallCreatingEvents(WallController wallController);
+
+    public void SubscribingOnWallPassesEvent(WallEventHandler eventHandler);
+
+    public void UnsubscribingOnWallPassesEvent(WallEventHandler eventHandler);
 }

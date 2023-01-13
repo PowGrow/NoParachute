@@ -13,7 +13,7 @@ public class TunnelShapeChanger : MonoBehaviour
     {
         _deltaX = (currentWallPosition.x + _targetShape.x) / _steps;
         _deltaY = (currentWallPosition.y + _targetShape.y) / _steps;
-        return new Vector2(_deltaX, _deltaY);
+         return new Vector2(_deltaX, _deltaY);
     }
     private void Start()
     {

@@ -26,7 +26,10 @@ public class WallController : MonoBehaviour
         _wallPrefab = wallPrefab;
         _progressProvider = progressProvider;
         if(progressProvider != null)
+        {
             progressProvider.SubscribingOnWallCreatingEvents(this);
+
+        }
         gameObject.SetActive(true);
     }
 
@@ -61,7 +64,8 @@ public class WallController : MonoBehaviour
         {
             wallTransformation.WallTransform(wall);
         }
-
+        if(_progressProvider != null)
+            _progressProvider.SubscribingOnWallPassesEvent(wall.EventHandler);
         wall.EventHandler.CreatingWallEvent += CreatingWallEventHandler;
         wall.EventHandler.DestroyingWallEvent += DestroyWallEventHandler;
 
@@ -74,7 +78,10 @@ public class WallController : MonoBehaviour
     private void DestroyWallEventHandler(Wall wall)
     {
         if(_progressProvider != null)
+        {
             _wallAnimators.Remove(wall.Animator);
+            _progressProvider.UnsubscribingOnWallPassesEvent(wall.EventHandler);
+        }
         WallDestroyingEvent?.Invoke(wall.EventHandler);
         wall.EventHandler.CreatingWallEvent -= CreatingWallEventHandler;
         wall.EventHandler.DestroyingWallEvent -= DestroyWallEventHandler;

@@ -8,6 +8,7 @@ public class ObjectProvider: IObjectProvider
     public ObjectProvider()
     {
         Objects = new Dictionary<string, GameObject>();
+        Debug.Log("Bump");
     }
 
     public GameObject GetObject(string objectName)
