@@ -15,6 +15,7 @@ public class GameInitializer : MonoBehaviour
 
     private void StartGame()
     {
+        Application.targetFrameRate = 60;
         ProjectContext.Instance.LoadLevelData(ProjectContext.Instance.GameData.SelectedLevelId, SceneType.Game);
         var progressProvider = ProjectContext.Instance.SceneContext.ProgressProvider;
         var objectProvider = ProjectContext.Instance.SceneContext.ObjectProvider;
