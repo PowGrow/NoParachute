@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
     private MovementController _movementController;
     private Rigidbody2D rb;
     [SerializeField] private Animator _animator;
-    private float speed = 3.5f;
+    private float speed = 8f;
 
     public static Movement Instance;
     public event Action<WallSpeed> SpeedChangeEvent;
@@ -45,6 +45,7 @@ public class Movement : MonoBehaviour
         Instance = this;
         _movementController = new MovementController();
         rb = GetComponent<Rigidbody2D>();
+        rb.drag = 4f;
         CollisionDetectorForTors.PlayerDeath += Disable;
     }
 

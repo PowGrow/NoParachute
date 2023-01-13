@@ -7,12 +7,13 @@ public class Borders : MonoBehaviour
 {
     [SerializeField] private Vector2 direction;
     [SerializeField] private AudioSource _audioSource;
+    private float force=4f;
 
     private void OnTriggerEnter(Collider other)
     {
         Rigidbody2D rb =Movement.Instance.gameObject.GetComponent<Rigidbody2D>();
         rb.Sleep();
-        rb.AddRelativeForce(direction);
+        rb.AddRelativeForce(direction*force);
         ParticleSystem _particleSystem = other.GetComponent<ParticleSystem>();
         if(_particleSystem!=null)
             _particleSystem.Play();

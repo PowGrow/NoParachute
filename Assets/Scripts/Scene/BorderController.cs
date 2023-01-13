@@ -8,6 +8,7 @@ public class BorderController : MonoBehaviour
     {
         _wallController = wallController;
         this.gameObject.SetActive(true);
+        AnimationParent.Instance.InitializationCamera(transform);
     }
 
     public void RefreshBorderRotationAndPosition(Quaternion rotation, Vector3 position)
