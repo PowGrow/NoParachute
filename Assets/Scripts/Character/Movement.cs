@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    [SerializeField] private GameObject _speedEffect;
     private static bool IsActive = true;
     private MovementController _movementController;
     private Rigidbody2D rb;
@@ -15,6 +16,10 @@ public class Movement : MonoBehaviour
     private void ChangeFallSpeed(WallSpeed speed)
     {
         WallAnimator.CurrentSpeed = speed;
+        if (speed == WallSpeed.Normal)
+            _speedEffect.SetActive(false);
+        else
+            _speedEffect.SetActive(true);
         SpeedChangeEvent?.Invoke(speed);
     }
 

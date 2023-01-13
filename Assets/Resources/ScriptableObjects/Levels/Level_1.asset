@@ -108,5 +108,4 @@ MonoBehaviour:
   - 90
   - 180
   - 0
-  TunnelShape:
-  - {x: 10, y: -5, z: 0}
+  TunnelShape: []
