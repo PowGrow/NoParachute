@@ -7,7 +7,7 @@ public class Borders : MonoBehaviour
 {
     [SerializeField] private Vector2 direction;
     [SerializeField] private AudioSource _audioSource;
-    private float force=4f;
+    private float force=2f;
 
     private void OnTriggerEnter(Collider other)
     {

@@ -15,9 +15,6 @@ public class AnimationParent : MonoBehaviour
 
     public void InitializationCamera(Transform _borderGO)
     {
-        Movement.Instance.transform.SetParent(_borderGO);
-        Movement.Instance.transform.position = new Vector3(Movement.Instance.transform.position.x,
-            Movement.Instance.transform.position.y, _borderGO.transform.position.z);
         _polygonForCamera.transform.SetParent(_borderGO);
     }
 }
