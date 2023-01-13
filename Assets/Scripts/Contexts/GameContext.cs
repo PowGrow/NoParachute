@@ -21,7 +21,7 @@ public class GameContext : SceneContextBase
         Time.timeScale = 1;
         var wallControllerObject = Instantiate(wallControllerPrefab);
         var wallAnimatorObject = Instantiate(wallAnimatorPrefab);
-        var borderControllerObject = Instantiate(borderControllerPrefab, Camera.main.transform);
+        var borderControllerObject = Instantiate(borderControllerPrefab,AnimationParent.Instance.transform);
         var bottomObject = Instantiate(bottomPrefab);
         var backgroundObject = Instantiate(backgroundPrefab);
         var backgrounSpriteRenderer = backgroundObject.GetComponent<SpriteRenderer>();

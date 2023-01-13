@@ -39,6 +39,7 @@ public class BorderController : MonoBehaviour
         _normalColliders = borderData.NormalWalls;
         _wideColliders = borderData.WideWalls;
         this.gameObject.SetActive(true);
+        AnimationParent.Instance.InitializationCamera(transform);
     }
 
     public void RefreshBorderRotationAndPosition(Quaternion rotation, Vector3 position)

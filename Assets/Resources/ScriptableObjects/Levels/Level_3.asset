@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelId: 3
   LevelName: Deep Forest 2
+  LevelTheme: {fileID: 8300000, guid: a43f60f9935957c40bae59be5a933e57, type: 3}
   NextLevel: {fileID: 11400000, guid: 8b6d07e2b8dfa4e4d8cb26a69b569d0c, type: 2}
   PreviousLevel: {fileID: 11400000, guid: a2bb286ff926ece4c85c7ffed3b4c508, type: 2}
   Stars: 00000000c8320000983a0000
